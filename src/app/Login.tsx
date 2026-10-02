@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-// import { useNavigate } from 'react-router-dom';
 import Loading from '../components/Animations/Loading';
 import {post,setToken} from '../features/api/api';
 
@@ -21,7 +20,7 @@ const { t } = useTranslation('common');
       email: email,
       password: password,
     });
-    post("/loin",data)
+    post("/login",data)
     .then((res) => {
       // console.log(res.data.token);
       setToken(res.data.token,res.data.refreshToken);

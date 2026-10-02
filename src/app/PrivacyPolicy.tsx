@@ -2,9 +2,10 @@ import { useTranslation } from "react-i18next";
 // import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 export default function PrivacyPolicy() {
-  const { t } =   useTranslation("privacy");
-  useEffect(() => {
-    document.title = "Privacy Policy | Ibovs";
+const { t, ready } = useTranslation("privacy");
+
+useEffect(() => {
+  document.title = "Privacy Policy | Ibovs";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute(
@@ -13,6 +14,9 @@ export default function PrivacyPolicy() {
       );
     }
   }, []);
+if (!ready) {
+      return <div>Loading...</div>;
+  } 
   const getList = (key: string): string[] => {
     const val = t(key, { returnObjects: true });
     if (Array.isArray(val)) return val as string[];
@@ -38,15 +42,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="*:max-w-4xl    px-5 py-12  leading-relaxed">
  
-      {/* <div className="mb-6 sticky w-fit float-end bg-blue-400 top-0">
-        <button
-          type="button"
-          onClick={() => navigate('/')}
-          className="px-4 py-2  top-0 rounded  hover:outline-2"
-        >
-          {t("backToHome")}
-        </button>
-      </div> */}
+     
       <h1 className="text-3xl md:text-4xl font-bold mb-6 ">{t("title")}</h1>
 
       <p className="mb-4">{t("intro1")}</p>

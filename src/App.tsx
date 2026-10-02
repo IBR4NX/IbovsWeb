@@ -3,7 +3,7 @@ import { RecoilRoot } from 'recoil';
 import { BrowserRouter, Routes, Route, useLocation, Navigate,   } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-const Home = React.lazy(() => import("./app/Home.js"));
+const Home = React.lazy(() => import("./app/Home"));
 const About = React.lazy(() => import("./app/About.js"));
 const Blog = React.lazy(() => import("./app/Blog.js"));
 const Careers = React.lazy(() => import("./app/Careers.js"));
