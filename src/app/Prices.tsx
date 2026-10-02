@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import PriceList from "../components/card/PriceList";
 import { getPrices } from "../features/api/pricesApi";
 import type { PriceRecord } from "../features/types/prices";

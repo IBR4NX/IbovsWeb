@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import List from "./List";
-import { PiDotsThreeOutlineVertical } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../app/Store";
 import { menu } from "../../features/mobileMenu/mobileMenu";
 import { useTranslation } from "react-i18next";
 import ThemeBtn from "../../features/theme/ThemeBtn";
-import ChangeLang from "../change/ChangeLang";
 function Header() {
   const mobileMenuOpen = useSelector((state: RootState) => state.menu.value);
   // const theme = useSelector((state: RootState) => state.theme.value);

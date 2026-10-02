@@ -1,12 +1,12 @@
 import axios from "axios";
 //<##☆##> api <##☆##> 
 const API_URL = import.meta.env.VITE_API_URL ;
-const deviceInfo = {
-  userAgent: navigator.userAgent,
-  language: navigator.language,
-  platform: navigator.platform,
-  online: navigator.onLine,
-};
+// const deviceInfo = {
+//   userAgent: navigator.userAgent,
+//   language: navigator.language,
+//   platform: navigator.platform,
+//   online: navigator.onLine,
+// };
 
 const api = axios.create({
   baseURL:API_URL ,
