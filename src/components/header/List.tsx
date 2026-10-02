@@ -3,17 +3,13 @@ import { useTranslation } from "react-i18next";
 // import { hover } from "framer-motion";
  const navigation = [
   { name: "home", href: "/" },
+  { name: "prices", href: "/prices" },
+  { name: "search", href: "/prices" },
   { name: "contact", href: "/contact" },
-  { name: "about", href: "/about" },
-  { name: "support", href: "/support" },
-  { name: "blog", href: "/blog" },
-  { name: "careers", href: "/careers" },
 
-  { name: "search", href: "/#" },
-  { name: "services", href: "#" },
+  { name: "services", href: "/#" },
   { name: "profile", href: "/#" },
-  { name: "settings", href: "/#" },
-  { name: "help", href: "#" }, 
+  { name: "help", href: "/help" }, 
 ];
 function List({lang}: {lang: string}) {
   const { t } = useTranslation('common');

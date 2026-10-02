@@ -47,17 +47,17 @@ function Header() {
     <>
 
       <header className={` `}>
-        <div className={` bgst fixed inset-x-0 top-0 z-20 backdrop-blur-xs  border-b border-black/20 dark:border-white/20 transition-all duration-300 ease-in-out
+        <div className={` bgst fixed inset-x-0 top-0 z-20 backdrop-blur-xs bg-background/30  border-b border-black/20 dark:border-white/20 transition-all duration-300 ease-in-out
           ${!mobileMenuOpen && !atTop ? "drop-shadow-md/25" : ""} drop-shadow-black dark:drop-shadow-white `}>
-          <div className="bg-opacity-98 property-bg  pr-(--scrollbar-padding)  ">
-            <nav className="flex z-20 justify-between items-center  px-5 py-2 h-12 lg *:max-h-14">
+          <div className="bg-opacity-98   pr-(--scrollbar-padding)  ">
+            <nav className="flex z-20 justify-between items-center  px-5 py-auto h-16 lg *:max-h-16">
               {/* Mobile menu button */}
               <div className=" flex h-full gap-1 flex-1 min-w-1/2 ">
                 <button
                   onClick={() => dispatch(menu(!mobileMenuOpen))}
-                  className="  h-full w-10 rounded-full hover:bg-gray-950/10 cursor-pointer rking ring-gray-950/5"
+                  className="  h-full w-16 rounded-full hover:bg-gray-950/10 cursor-pointer rking ring-gray-950/5"
                 >
-                  <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className=" m-auto"
                   >{mobileMenuOpen ?
                     <>
@@ -74,8 +74,8 @@ function Header() {
                   </svg>
                 </button>
                 {/* Logo */}
-                <Link to="/">
-                  <span className=" cabin-sketch font-medium text-3xl " >Ibovs</span>
+                <Link to="/" className="flex items-center gap-2 h-full">
+                  <span className=" cabin-sketch font-medium text-xl " >السوق اليمني</span>
                 </Link>
               </div>
               <div className="flex flex-1 gap-2 h-full *:h-full  justify-end items-center  ">
@@ -85,16 +85,16 @@ function Header() {
                   {/* <button type="button" className="inline-flex items-center gap-1 rounded-full bg-gray-950/2 px-2 py-1 inset-ring inset-ring-gray-950/8 dark:bg-white/5 dark:inset-ring-white/2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="-ml-0.5 size-4 fill-gray-600 dark:fill-gray-500"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd"></path></svg><kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&amp;]:block">⌘K</kbd><kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos_&amp;]:block dark:text-gray-400">Ctrl&nbsp;K</kbd></button> */}
                 </div>
                 {/* Theme and Language Toggle */}
-                <div className=" *:h-full flex items-center gap-2 bg-alpha-5 **:bg-none! cursor-pointer   rounded-2xl px-1 ">
+                <div className=" *:-full *:w-full flex items-center gap-2 bg-alpha-5 **:bg-none! *:my-auto cursor-pointer    rounded-2xl px-1 ">
                   <ThemeBtn />
-                  <ChangeLang en="EN" ar="AR" />
+                  {/* <ChangeLang en="EN" ar="AR" /> */}
                 </div>
                 {/* More Options */}
-                <div className="*:h-full flex items-center gap-2">
+                {/* <div className="*:h-full flex items-center gap-2">
                   <span className={`  cursor-pointer md:hidden p-1 flex it `}>
                     <PiDotsThreeOutlineVertical size="24" className="" />
                   </span>
-                </div>
+                </div> */}
               </div>
             </nav>
           </div>
@@ -110,17 +110,18 @@ function Header() {
             className={`sm:max-w-xs h-full shadow-2xl transition-all ease-out   duration-300 ${i18n.language === "ar" ? "translate-x-full" : "-translate-x-full"} ${mobileMenuOpen && "translate-x-0!"}
                  dark:border-white/10`}>
             {/* Mobile menu items */}
-            <div className=" h-full divide-y divide-black/20 dark:divide-white/20  *:py-4p gap-4  flex flex-col p-6 property-bg overflow-hidden ">
+            <div   onClick={() => dispatch(menu(!mobileMenuOpen))}
+             className=" h-full divide-y divide-black/20 dark:divide-white/20  *:py-4p gap-4  flex flex-col p-6 backdrop-blur-lg bg-background/50 bg-opacity-9 overflow-hidden ">
 
               <div className="  pb-4 scroll-yk-auto overflokw-y-auto overflow-x-hidden ">
                 <List lang={i18n.language} />
               </div>
               {/* Login/Logout */}
-              <div className="  bottom-0 h-fit flex justify-center items-center  rounded-lg  ">
+              {/* <div className=" relative bottom-0 h-fit flex justify-center items-center  rounded-lg  ">
                 <Link to="/login" className=" w-full text-center  px-4 py-2  rounded-full bg-amber-600 hover:bg-amber-700 text-white font-medium ">
                   Login / Sign Up
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

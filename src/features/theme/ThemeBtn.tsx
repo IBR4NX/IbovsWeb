@@ -8,7 +8,7 @@ export default function ThemeBtn() {
   return (
     <>  
         <button onClick={()=>dispatchTheme(setTheme())}
-          className={` rounded-full flex cursor-pointer text-black dark:text-white *:size-6 size-8 p-1 `}>
+          className={` rounded-full m-auto flex cursor-pointer text-black dark:text-white *:size-6 size-8 p-1 `}>
             {/* <IoColorPaletteOutline/> */}
             {theme === "light" ? <IoSunnyOutline/> : theme==="dark"?<IoMoonOutline/>:<IoContrastSharp/>} 
         </button>

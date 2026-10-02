@@ -35,7 +35,7 @@ const { t } = useTranslation('common');
   return (
     <div className="min-h-screen flex items-center justify-center py-6 px-4 sm:py-12 sm:px-6 lg:px-8">
       <div className="max-w-sm sm:max-w-md w-xs space-y-6 sm:space-y-8 bg-alpha-5 rounded-2xl p-6 sm:p-8 shadow-lg">
-          <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold ">Log in</h2>
+          <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold "> {t('login.title')}</h2>
         <form className="mt-6 sm:mt-8 space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm space-y-2">
               <input
@@ -68,7 +68,7 @@ const { t } = useTranslation('common');
 
             <div className="text-sm">
               <a href="#" className="font-medium text-gold text-gold-hover">
-                Forgot your password?
+                {t('login.forgotPassword')}
               </a>
             </div>
           </div>
@@ -79,15 +79,16 @@ const { t } = useTranslation('common');
               disabled={loading}
               className="group relative w-full  flex justify-center py-3 sm:py-2 px-4 border border-transparent bg-alpha-10  rounded-2xl text-gold"
             >
+              {loading ? <Loading size={24}/> : t('login.submit')}
               
             </button>
           </div>
 
           <div className="text-center">
             <span className="text-sm text-alpha ">
-             Dont have an account?
+              {t('login.noAccount')}{" "}
               <a href="/register" className="font-medium *:mx-auto text-gold ">
-               {loading? <Loading size={24}/> : "Sign Up"}
+               {loading? <Loading size={24}/> : t('login.register')}
               </a>
             </span>
           </div>

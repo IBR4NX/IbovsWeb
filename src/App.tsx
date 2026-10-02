@@ -4,16 +4,17 @@ import { BrowserRouter, Routes, Route, useLocation, Navigate,   } from "react-ro
 import { AnimatePresence } from "framer-motion";
 
 const Home = React.lazy(() => import("./app/Home"));
-const About = React.lazy(() => import("./app/About.js"));
-const Blog = React.lazy(() => import("./app/Blog.js"));
-const Careers = React.lazy(() => import("./app/Careers.js"));
-const Support = React.lazy(() => import("./app/Support.js"));
-const Faq = React.lazy(() => import("./app/Faq.js"));
+const About = React.lazy(() => import("./app/Support/About.js"));
+const Prices = React.lazy(() => import("./app/Prices"));
+const Blog = React.lazy(() => import("./app/Support/Blog.js"));
+const Careers = React.lazy(() => import("./app/Support/Careers.js"));
+const Help = React.lazy(() => import("./app/Support/Help.js"));
+const Faq = React.lazy(() => import("./app/Support/Faq.js"));
 const NotFound = React.lazy(() => import("./components/notfound/notfound"));
 import Layout from './app/Layout/Layout';
 import Sping from './components/Animations/Sping.js';
-import PrivacyPolicy from './app/PrivacyPolicy.js';
-import Contact from './app/Contact.js';
+import PrivacyPolicy from './app/Support/PrivacyPolicy.js';
+import Contact from './app/Support/Contact.js';
 const Login = React.lazy(() => import("./app/Login"));
 
 /*
@@ -44,9 +45,7 @@ function App() {
     <>
      <Sping outTime={loading}/>
      <div id='top' className=""></div>
-     < div  className="fixed bg-radial from-black/10 dark:from-cyan-950/20 w-screen bg-center -z-50 h-screen  ">
-     <div className="bg-[url(/favicons/logo.png)] bg-center bg-contain bg-no-repeat bg-origin-content px-20 m-auto opacity-30 h-full max-w-2xl"></div>
-     </div>
+
       <div className="isolate">
         <div className="">
           <RecoilRoot>
@@ -74,10 +73,11 @@ function AnimatedRoutes() {
             <Route path="/register" element={<Register />} />
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/prices" element={<Prices />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/careers" element={<Careers />} />
-              <Route path="/support" element={<Support />} />
+              <Route path="/help" element={<Help />} />
               <Route path="/faq" element={<Faq />} />
               {/* 
               <Route path="/search" element={ <Search /> } />

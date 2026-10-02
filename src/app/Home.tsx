@@ -1,96 +1,325 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import logo from "/assets/logo/logo.png";
-import { useTranslation } from 'react-i18next';
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
+import PriceList from "../components/card/PriceList";
+import { getPrices } from "../features/api/pricesApi";
+import type { PriceRecord } from "../features/types/prices";
+
+interface CityOption {
+    id: string;
+    name: string;
+}
+
 export default function Home() {
+    const [prices, setPrices] = useState<PriceRecord[]>([]);
+    const [cities, setCities] = useState<CityOption[]>([]);
+    const [selectedCity, setSelectedCity] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
-  const { t } = useTranslation("home");
-  
-  return (
-    <>
-   <section className="relative overflow-hidden  bg-linear-to-b h-screen ">
-      <div className="max-w-7xl bg mx-auto px-6 py-10 lg:py-28 flex flex-col lg:flex-row items-center gap-12">
-        <div className="w-full max-lg:p-0 lg:w-2/3   ">
-        <motion.p
-            initial={{ x: 30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-4 text-gray-600 dark:text-gray-300 text-3xl mx-auto lg:mx-0 "
-          >
-                {t('welcome')}
-                      </motion.p>
-          <motion.p
-            initial={{ x: 30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 "
-          >
-                {t('subtitle')}
-                      </motion.p>
-                <p>{t('home')}</p>
+    useEffect(() => {
+        let cancelled = false;
 
-          {/* example: you can use `bodyClass` in the component */}
-          {/* <div className="mt-2 text-xs text-gray-500">Body class: {bodyClass}</div> */}
+        async function loadPrices() {
+            setLoading(true);
+            setError("");
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.24 }}
-            className="mt-20 flex justify-center lg:justify-end gap-4"
-          >
-            <Link to="/agents" className="inline-flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-lg shadow-md">
-            {t('cta.explore')}            </Link>
-            <Link to="/home" className="inline-flex items-center gap-2 px-4 py-3 border border-gray-200 dark:border-white/10 rounded-lg text-gray-700 dark:text-gray-300">
-            {t('cta.start')}
-            </Link>
-          </motion.div>
+            try {
+                const data = await getPrices({
+                    cityId: selectedCity,
+                    categoryId: "",
+                    search: "",
+                });
 
-          <motion.div className="mt-6 flex items-center justify-center lg:justify-end gap-4 text-sm text-gray-500"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.36 }}>
-            <span> تجريبي </span>
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="logo" className="h-6 opacity-80" />
-              <div className="h-6 w-px bg-gray-200 dark:bg-white/10" />
-              <span>تحت التطوير</span>
+                if (cancelled) return;
+
+                setPrices(data);
+
+                if (!selectedCity) {
+                    const cityMap = new Map<string, string>();
+
+                    data.forEach((item) => {
+                        cityMap.set(item.city_id, item.city_name);
+                    });
+
+                    setCities(
+                        Array.from(cityMap, ([id, name]) => ({
+                            id,
+                            name,
+                        })),
+                    );
+                }
+            } catch (loadError) {
+                if (!cancelled) {
+                    setError(
+                        loadError instanceof Error
+                            ? loadError.message
+                            : "تعذر تحميل أسعار السوق.",
+                    );
+                }
+            } finally {
+                if (!cancelled) {
+                    setLoading(false);
+                }
+            }
+        }
+
+        void loadPrices();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [selectedCity]);
+
+    const productCount = new Set(
+        prices.map((item) => item.product_id),
+    ).size;
+
+    const cityCount = new Set(
+        prices.map((item) => item.city_id),
+    ).size;
+
+    return (
+        <main
+            dir="rtl"
+            className="min-h-screen bg-background text-foreground"
+        >
+            <div className="mx-auto w-full  px-4 pb-12 pt-5">
+
+                {/* Hero */}
+                <motion.section
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="rounded-3xl border border-border bg-card p-5 shadow-sm"
+                >
+                    <Badge
+                        variant="secondary"
+                        className="rounded-lg px-3 py-1 text-sm"
+                    >
+                        مؤشر أسعار السوق
+                    </Badge>
+
+                    <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight">
+                        اعرف سعر المنتج في مدينتك
+                    </h1>
+
+                    <p className="mt-3 text-base leading-7 text-muted-foreground">
+                        استعرض أسعار السلع والمواد وقارن الأسعار بين المدن
+                        بسهولة.
+                    </p>
+
+                    <Link to="/prices">
+                    <Button
+                        className="mt-6 h-12 w-full rounded-xl text-base font-bold"
+                    >
+                            استعرض كل الأسعار
+                    </Button>
+                        </Link>
+                </motion.section>
+
+                {/* Statistics */}
+                <section
+                    className="mt-5 grid grid-cols-3 gap-2"
+                    aria-label="ملخص الأسعار"
+                >
+                    <Card className="border-border shadow-none">
+                        <CardContent className="p-3 text-center">
+                            <p className="text-xs leading-5 text-muted-foreground">
+                                سجلات الأسعار
+                            </p>
+
+                            <p className="mt-1 text-2xl font-extrabold tabular-nums">
+                                {loading ? "—" : prices.length}
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-border shadow-none">
+                        <CardContent className="p-3 text-center">
+                            <p className="text-xs leading-5 text-muted-foreground">
+                                المنتجات
+                            </p>
+
+                            <p className="mt-1 text-2xl font-extrabold tabular-nums">
+                                {loading ? "—" : productCount}
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-border shadow-none">
+                        <CardContent className="p-3 text-center">
+                            <p className="text-xs leading-5 text-muted-foreground">
+                                المدن
+                            </p>
+
+                            <p className="mt-1 text-2xl font-extrabold tabular-nums">
+                                {loading ? "—" : cityCount}
+                            </p>
+                        </CardContent>
+                    </Card>
+                </section>
+
+                {/* Prices Section */}
+                <section
+                    className="mt-9"
+                    aria-labelledby="home-prices-title"
+                >
+                    <div className="flex items-end justify-between gap-3">
+                        <div className="min-w-0">
+                            <h2
+                                id="home-prices-title"
+                                className="text-2xl font-bold tracking-tight"
+                            >
+                                أسعار السوق
+                            </h2>
+
+                            <p className="mt-1.5 text-sm text-muted-foreground">
+                                اختر مدينة لعرض الأسعار.
+                            </p>
+                        </div>
+
+                        <Button
+                            size="sm"
+                            className="shrink-0 px-2 text-sm font-semibold"
+                        >
+                            <Link to="/prices">
+                                كل الأسعار
+                            </Link>
+                        </Button>
+                    </div>
+
+                    {/* Cities */}
+                    <div
+                        className="mt-5 -mx-4 overflow-x-auto px-4 pb-1"
+                        role="tablist"
+                        aria-label="اختيار المدينة"
+                    >
+                        <div className="flex w-max gap-2">
+                            <Button
+                                type="button"
+                                role="tab"
+                                aria-selected={!selectedCity}
+                                onClick={() => setSelectedCity("")}
+                                variant={!selectedCity ? "default" : "outline"}
+                                className="h-10 rounded-full px-4"
+                            >
+                                كل المدن
+                            </Button>
+
+                            {cities.map((city) => {
+                                const selected =
+                                    selectedCity === city.id;
+
+                                return (
+                                    <Button
+                                        key={city.id}
+                                        type="button"
+                                        role="tab"
+                                        aria-selected={selected}
+                                        onClick={() =>
+                                            setSelectedCity(city.id)
+                                        }
+                                        variant={
+                                            selected
+                                                ? "default"
+                                                : "outline"
+                                        }
+                                        className="h-10 rounded-full px-4"
+                                    >
+                                        {city.name}
+                                    </Button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    <Separator className="my-5" />
+
+                    {/* Loading */}
+                    {loading && (
+                        <Card className="border-border shadow-none">
+                            <CardContent className="p-6 text-center">
+                                <p
+                                    role="status"
+                                    className="text-base text-muted-foreground"
+                                >
+                                    جارٍ تحميل الأسعار...
+                                </p>
+                            </CardContent>
+                        </Card>
+                    )}
+
+                    {/* Error */}
+                    {!loading && error && (
+                        <Card className="border-destructive/30 bg-destructive/5 shadow-none">
+                            <CardContent className="p-5">
+                                <p
+                                    role="alert"
+                                    className="font-semibold text-destructive"
+                                >
+                                    {error}
+                                </p>
+
+                                <p className="mt-2 text-sm text-muted-foreground">
+                                    تأكد من تشغيل الخادم وإعداد عنوانه في
+                                    ملف .env.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    )}
+
+                    {/* Empty */}
+                    {!loading &&
+                        !error &&
+                        prices.length === 0 && (
+                            <Card className="border-border shadow-none">
+                                <CardContent className="p-6 text-center">
+                                    <p className="text-base font-medium text-muted-foreground">
+                                        لا توجد أسعار مسجلة لهذه المدينة
+                                        حاليًا.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        )}
+
+                    {/* Price List */}
+                    {!loading &&
+                        !error &&
+                        prices.length > 0 && (
+                            <>
+                                <PriceList
+                                    items={prices.slice(0, 3)}
+                                    labels={{
+                                        price: "السعر",
+                                        quantity: "الكمية",
+                                        updated: "آخر تحديث",
+                                    }}
+                                />
+
+                                {prices.length > 3 && (
+                                    <Button
+                                        variant="outline"
+                                        className="mt-5 h-11 w-full rounded-xl text-base font-semibold"
+                                    >
+                                        <Link to="/prices">
+                                            عرض بقية الأسعار
+                                            <span className="ms-1">
+                                                ({prices.length - 3})
+                                            </span>
+                                        </Link>
+                                    </Button>
+                                )}
+                            </>
+                        )}
+                </section>
             </div>
-          </motion.div>
-        </div>
-
-        <div className=" hidden w-full lg:w-1/2  justify-center lg:justify-end">
-          <motion.div
-            initial={{ scale: 0.98, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration:64, repeat: Infinity, ease: "easeInOut" }}
-              className="rounded-2xl bg-linear-to-tr from-amber-100 to-amber-200 dark:from-gray-800 dark:to-gray-700 p-8 shadow-xl"
-            >
-              <div className="w-72 h-44 bg-white/90 dark:bg-black/50 rounded-lg flex flex-col items-center justify-center text-2xl font-semibold text-gray-800 dark:text-white">
-                <div>معاينة المحفظة</div>
-                <div className="mt-2 text-sm text-gray-500 dark:text-gray-300">رصيد: <span className="font-bold text-gray-900 dark:text-white">1,254.00 SAR</span></div>
-              </div>
-              <div className="mt-4 text-xs text-gray-600 dark:text-gray-300">تحويلات سريعة، متابعة حالة، وإشعارات فورية.</div>
-            </motion.div>
-
-            <motion.svg className="absolute -right-8 -top-8 opacity-30" width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg"
-              initial={{ rotate: 0 }} animate={{ rotate: 15 }} transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}>
-              <circle cx="80" cy="80" r="80" fill="url(#g)" />
-              <defs>
-                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#F59E0B" />
-                  <stop offset="1" stopColor="#F97316" />
-                </linearGradient>
-              </defs>
-            </motion.svg>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  
-    </>
-    
-  )
+        </main>
+    );
 }

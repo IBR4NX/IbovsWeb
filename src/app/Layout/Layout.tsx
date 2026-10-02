@@ -17,7 +17,7 @@ function Layout() {
          <Animationpage>
          <Outlet />
          </Animationpage>
-         <Test/>
+         {/* <Test/> */}
             <Footer />
         </>
     )

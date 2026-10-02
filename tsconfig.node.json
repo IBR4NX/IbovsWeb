@@ -25,11 +25,11 @@
     /* Add by ibovs */
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"],
+      "@/*": ["/*"],
       "@/components/*": ["components/*"],
       "@/config/*": ["config/*"],
       "@/assets/*": ["assets/*"]
-    },
+    }
   },
   "include": ["vite.config.ts"]
 }

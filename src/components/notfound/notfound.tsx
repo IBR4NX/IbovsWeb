@@ -1,7 +1,7 @@
 import Footer from "../Footers/Footer";
 
 export default function Notfound() {
-    return <div className="fllex flex-cokl items-center justify-center pt-10 min-w-screen min-h-screen">
+    return <div className="fllex flex-cokl items-center bg-background justify-center pt-10 min-w-screen min-h-screen">
         <div onClick={()=>location.href="/"} className="text-center">
             <h1 className="text-4xl font-bold mb-4">404 - Lost in Space</h1>
             <p className="text-xl mb-6">Houston, we have a problem!</p>

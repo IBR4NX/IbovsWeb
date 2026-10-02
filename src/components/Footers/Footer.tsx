@@ -24,16 +24,14 @@ export default function Footer() {
         </div>
         <div className="  grid grid-cols-2 gap-4  md:grid-cols-2">
           <div className=" *:block *:w-fit gap-3 flex flex-col">
-            <a href="/about " className="hover:underline">{t("links.about")}</a>
             <a href="/services " className="hover:underline">{t("links.services")}</a>
             <a href="/privacy-policy " className="hover:underline">{t("links.privacy")}</a>
             <a href="/contact " className="hover:underline">{t("links.contact")}</a>
           </div>
 
           <div className=" *:block *:w-fit gap-3 flex flex-col">
-            <a href="/blog " className="hover:underline">{t("links.blog")}</a>
             <a href="/careers " className="hover:underline">{t("links.careers")}</a>
-            <a href="/support " className="hover:underline">{t("links.support")}</a>
+            <a href="/help " className="hover:underline">{t("links.support")}</a>
             <a href="/faq " className="hover:underline">{t("links.faq")}</a>
           </div>
 

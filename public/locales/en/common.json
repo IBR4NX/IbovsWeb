@@ -3,6 +3,7 @@
   "ar":"Arabic",
   "test":"testing",
     "home": "Home",
+    "prices": "Prices",
     "search": "Search",
     "services": "Services",
     "about": "About",
@@ -15,6 +16,25 @@
     "login": "Login",
     "register": "Register",
     "logout": "Logout"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "forgotPassword": "Forgot your password?",
+    "noAccount": "Don't have an account?",
+    "register": "Sign Up"
+  },
+  "register": {
+    "title": "Register",
+    "username": "Username",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Register",
+    "haveAccount": "Already have an account?",
+    "login": "Login"
   }
   ,
   "contacts": {
