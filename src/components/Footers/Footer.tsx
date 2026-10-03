@@ -3,17 +3,34 @@ import ChangeLang from '../change/ChangeLang';
 import { useTranslation } from "react-i18next";
 import { FaInstagram, FaFacebook, FaX, FaWhatsapp, FaGithub } from "react-icons/fa6";
 import ThemeBtn from "../../features/theme/ThemeBtn";
+import { useEffect, useState } from 'react';
 
-export default function Footer() {
+export default  function Footer() {
   const { t } = useTranslation("footer");
+  const [city, setCity] = useState("");
+  useEffect(() => {
+    const fetchCity = async () => {
+      try {
+  const response = await fetch("https://ipapi.co/json");
+  const data = await response.json();
+  console.log(data.city);
+  setCity(data.city);
+      } catch (error) {
+        console.error("Error fetching city:", error);
+        setCity("Unknown");
+      }
+    };
+    fetchCity();
+  }, []);
+
   return (
     <footer className="*:py-5 mx-5 border-t divide-y divide-gray-950/10 dark:divide-white/5 border-gray-950/10 dark:border-white/10 mt-20">
       <div className="container mx-5">
         <div className=" flex justify-around items-center mb-4 pt-4 pb-2 mb-4">
           <h2 className="text-xl col-aputo self-center min-w2xs text-center border-b justify-self-center font-bold  border-gray-950/10 dark:border-white/10">{t("quickLinks")}</h2>
           <div className="  flex items-center gap-2 rounded-2xl px-1 ">
-            <ThemeBtn /> 
-          {/*        
+            <ThemeBtn />
+            {/*        
             <button onClick={() => changeLang(i18n.language.startsWith('ar') ? 'en' : 'ar')} > {i18n.language.startsWith('ar') ? 'EN(English)' : 'AR (عربي)'} </button>
                <p>{i18n.language}</p>
              */}
@@ -51,6 +68,7 @@ export default function Footer() {
             <a href="https://github.com/ibr4nx" aria-label="github"><FaGithub /></a>
           </div>
         </div>
+        <p className="text-sm text-alpha ">{t("city", { city: city })}</p>
 
       </div>
       <div className="container mx-auto px-4 flex justify-between mt-6 text-center text-sm">

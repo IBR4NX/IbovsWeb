@@ -46,14 +46,14 @@ export default function Prices() {
         if (!cancelled) {
           setError(
             loadError instanceof Error
-              ? loadError.message
+              ? loadError.name
               : "تعذر تحميل الأسعار.",
           );
         }
       } finally {
         if (!cancelled) setLoading(false);
       }
-    }, search.trim() ? 300 : 0);
+    }, search.trim() ? 1000 : 0);
 
     return () => {
       cancelled = true;
