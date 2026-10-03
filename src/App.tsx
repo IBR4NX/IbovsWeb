@@ -83,12 +83,13 @@ function AnimatedRoutes() {
               <Route path="/search" element={ <Search /> } />
               <Route path="/info" element={ <Info /> } />
               <Route path="/profile" element={ <Profile /> } />
+              <Route path="*" element={<NotFound />} />
               */}
             <Route path='/services' element={<Contact/>}/>
             <Route path='/contact' element={<Contact/>}/>
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Route>
-              <Route path="*" element={<NotFound />} />
+         
           </Routes>
         </Suspense>
       </AnimatePresence>
