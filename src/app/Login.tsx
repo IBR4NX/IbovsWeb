@@ -4,7 +4,7 @@ import Loading from '../components/Animations/Loading';
 import {post,setToken} from '../features/api/api';
 
 const  Login: React.FC =  () => {
-const { t } = useTranslation('common');
+const { t,ready } = useTranslation('common');
   // const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,6 +31,9 @@ const { t } = useTranslation('common');
       setLoading(false);
       setMessange(err.response?.data?.message || "An unexpected error occurred");
     });
+  }
+    if (!ready) {
+    return null;
   }
   return (
     <div className="min-h-screen flex items-center justify-center py-6 px-4 sm:py-12 sm:px-6 lg:px-8">

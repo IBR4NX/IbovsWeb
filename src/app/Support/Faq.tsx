@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 
 export default function Faq() {
-  const { t } = useTranslation("faq");
+  const { t,ready } = useTranslation("faq");
   const items = t("items", { returnObjects: true }) as Array<{ q: string; a: string }>;
 
   useEffect(() => {
@@ -10,7 +10,9 @@ export default function Faq() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", t("description") || "Frequently asked questions");
   }, [t]);
-
+  if (!ready) {
+    return null;
+  }
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
       <h1 className="text-3xl md:text-4xl font-bold mb-6">{t("title")}</h1>

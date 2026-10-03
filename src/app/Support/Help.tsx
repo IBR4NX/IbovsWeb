@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 
 export default function Support() {
-  const { t } = useTranslation("support");
+  const { t,ready } = useTranslation("support");
   const contacts = t("contacts", { returnObjects: true }) as Array<{ type: string; value: string; note?: string }>;
 
   useEffect(() => {
@@ -10,6 +10,9 @@ export default function Support() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", t("description") || "Support page");
   }, [t]);
+  if (!ready) {
+    return null;
+  }
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">

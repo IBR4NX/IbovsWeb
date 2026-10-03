@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 export default function Register() {
   const nav = useNavigate();
   // const dispatch = useDispatch();
-  const { t } = useTranslation('common');
+  const { t,ready } = useTranslation('common');
   
   const [messange, setMessange] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,9 @@ export default function Register() {
   }
   // const {err, success} =apiPost("url test","req test");
   // console.log(err,success);
-
+  if (!ready) {
+    return null;
+  }
   return (
     <>
 
