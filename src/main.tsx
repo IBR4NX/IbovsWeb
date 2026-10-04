@@ -1,8 +1,8 @@
-import App from "./App.tsx";
+import App from "./app/App.tsx";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import { store } from "./app/Store.ts";
-import "./features/i18n/index.ts";
+import { store } from "./app/store.ts";
+import "./lib/i18n.ts";
 import "./index.css";
 // import { StrictMode } from "react";
 

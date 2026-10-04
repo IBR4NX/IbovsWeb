@@ -1,17 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import  calcSlice  from "../features/calcs/calcSlice";
-import counterSlice  from "../features/counter/counterSlice";
 import themeSlice  from "../features/theme/themeSlice";
-import mobileMenu  from "../features/mobileMenu/mobileMenu";
-import  filterSlice  from "../features/filter/Slice";
+import mobileMenu  from "../features/navigation/mobileMenuSlice";
 
 export const store = configureStore({
     reducer:{
-        calc:calcSlice,
-        counter:counterSlice,
         theme: themeSlice,
         menu:mobileMenu,
-        filter:filterSlice,
     },
 })
 // Infer the `RootState` and `AppDispatch` types from the store itself
