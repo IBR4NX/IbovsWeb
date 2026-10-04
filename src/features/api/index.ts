@@ -88,4 +88,5 @@ export const setToken=(token:string,refreshtoken:string)=> {
   if(refreshtoken) localStorage.setItem("refreshtoken", refreshtoken);
 }
 export default  apiPost;
+
 export { API_URL,api }

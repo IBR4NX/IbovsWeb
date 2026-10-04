@@ -11,6 +11,17 @@ export interface PriceRecord {
   updated_at: string;
 }
 
+export interface FilterOption {
+  id: string;
+  name: string;
+}
+
+export interface PriceFiltersValue {
+  cityId: string;
+  categoryId: string;
+  search: string;
+}
+
 export interface PricesResponse {
   success: boolean;
   data: PriceRecord[];

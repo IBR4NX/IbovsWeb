@@ -26,16 +26,11 @@ export default  function Footer() {
   return (
     <footer className="*:py-5 mx-5 border-t divide-y divide-gray-950/10 dark:divide-white/5 border-gray-950/10 dark:border-white/10 mt-20">
       <div className="container mx-5">
-        <div className=" flex justify-around items-center mb-4 pt-4 pb-2 mb-4">
+        <div className=" flex justify-between pr- items-center mb-4 pt-4 pb-2 mb-4">
           <h2 className="text-xl col-aputo self-center min-w2xs text-center border-b justify-self-center font-bold  border-gray-950/10 dark:border-white/10">{t("quickLinks")}</h2>
           <div className="  flex items-center gap-2 rounded-2xl px-1 ">
             <ThemeBtn />
-            {/*        
-            <button onClick={() => changeLang(i18n.language.startsWith('ar') ? 'en' : 'ar')} > {i18n.language.startsWith('ar') ? 'EN(English)' : 'AR (عربي)'} </button>
-               <p>{i18n.language}</p>
-             */}
-            <ChangeLang en="English" ar="Arabic" >
-            </ChangeLang>
+            <ChangeLang en="English" ar="Arabic" />
 
           </div>
         </div>
@@ -47,7 +42,6 @@ export default  function Footer() {
           </div>
 
           <div className=" *:block *:w-fit gap-3 flex flex-col">
-            <a href="/careers " className="hover:underline">{t("links.careers")}</a>
             <a href="/help " className="hover:underline">{t("links.support")}</a>
             <a href="/faq " className="hover:underline">{t("links.faq")}</a>
           </div>

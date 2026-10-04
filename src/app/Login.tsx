@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Loading from '../components/Animations/Loading';
-import {post,setToken} from '../features/api/api';
+import {post,setToken} from '../features/api';
 
 const  Login: React.FC =  () => {
 const { t,ready } = useTranslation('common');

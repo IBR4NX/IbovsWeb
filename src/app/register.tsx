@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { useDispatch } from "react-redux";
-import { post } from "../features/api/api.js";
+import { post } from "../features/api/index.js";
 import Loading from "../components/Animations/Loading.js";
 import { useTranslation } from "react-i18next";
 
