@@ -16,6 +16,11 @@ import Spinner from "@/components/feedback/Spinner";
 import PrivacyPolicy from "@/pages/support/PrivacyPolicyPage";
 import Contact from "@/pages/support/ContactPage";
 const Login = React.lazy(() => import("@/pages/auth/LoginPage"));
+const Products = React.lazy(() => import("@/pages/catalog/ProductsPage"));
+const Categories = React.lazy(() => import("@/pages/catalog/CategoriesPage"));
+const Cities = React.lazy(() => import("@/pages/catalog/CitiesPage"));
+const Dashboard = React.lazy(() => import("@/pages/dashboard/DashboardPage"));
+const Catalog = React.lazy(() => import("@/pages/catalog/CatalogPage"));
 
 /*
 const Search = React.lazy(() => import("@/pages/Search"));
@@ -74,6 +79,11 @@ function AnimatedRoutes() {
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/prices" element={<Prices />} />
+              <Route path="/catalog/products" element={<Products />} />
+              <Route path="/catalog" element={<Catalog />} />
+              <Route path="/catalog/categories" element={<Categories />} />
+              <Route path="/catalog/cities" element={<Cities />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/careers" element={<Careers />} />

@@ -13,7 +13,7 @@ interface SearchFilterProps {
 
 export function SearchFilter({ value, onChange }: SearchFilterProps) {
   return (
-    <div className="md:col-span-2 col-span-4">
+    <div className=" col-span-4">
       <label htmlFor="product-search" className="mb-1.5 block text-sm font-medium">
         البحث
       </label>

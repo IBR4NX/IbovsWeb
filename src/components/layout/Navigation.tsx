@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 // import { hover } from "framer-motion";
  const navigation = [
@@ -6,7 +6,9 @@ import { useTranslation } from "react-i18next";
   { name: "prices", href: "/prices" },
   { name: "search", href: "/prices" },
   { name: "contact", href: "/contact" },
-
+  {name:"products", href:"/catalog/products" },
+  {name:"cities", href:"/catalog/cities" },
+  {name:"categories", href:"/catalog/categories" },
   { name: "services", href: "/#" },
   { name: "profile", href: "/#" },
   { name: "help", href: "/help" }, 

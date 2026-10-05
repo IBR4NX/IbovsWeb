@@ -21,7 +21,7 @@ function Header() {
   const [atTop, setAtTop] = useState(true);
 
   function handleMenuToggle() {
-    console.log("mobileMenuOpen", mobileMenuOpen, "close", close, "disabled", disabled);
+    // console.log("mobileMenuOpen", mobileMenuOpen, "close", close, "disabled", disabled);
     setDisabled(true);
     dispatch(menu(!mobileMenuOpen));
         if (mobileMenuOpen) {

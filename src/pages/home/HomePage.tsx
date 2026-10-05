@@ -16,19 +16,19 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const highlights = [
   {
-    title: "أسعار محدثة",
-    description: "تابع تغيرات الأسعار من مصدر واحد وبواجهة واضحة.",
-    icon: TrendingUp,
+    title: "ابحث عن المنتج",
+    description: "اكتب اسم المنتج الذي تريد معرفة سعره في خانة البحث.",
+    icon: PackageSearch,
   },
   {
-    title: "حسب المدينة",
-    description: "اعثر على السعر الأقرب لك بالبحث باسم المدينة.",
+    title: "اختر المدينة والفئة",
+    description: "حدّد المدينة والفئة بالاسم لتضييق النتائج المناسبة لك.",
     icon: MapPin,
   },
   {
-    title: "بحث سريع",
-    description: "ابحث باسم المنتج أو الفئة خلال ثوانٍ.",
-    icon: PackageSearch,
+    title: "قارن السعر",
+    description: "اطّلع على السعر والكمية وآخر تحديث قبل اتخاذ قرار الشراء.",
+    icon: TrendingUp,
   },
 ];
 
@@ -64,12 +64,20 @@ export default function HomePage() {
                 <ArrowLeft />
               </Button>
               <Button
-                render={<Link to="/about" />}
+                render={<a href="#how-it-works" />}
                 variant="outline"
                 size="lg"
                 className="h-11 w-full sm:w-auto"
               >
                 كيف يعمل الموقع؟
+              </Button>
+              <Button
+                render={<Link to="/catalog" />}
+                variant="ghost"
+                size="lg"
+                className="h-11 w-full sm:w-auto"
+              >
+                إدارة المنصة
               </Button>
             </div>
           </div>
@@ -87,11 +95,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <section id="how-it-works" className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-primary">مصمم لتوفير وقتك</p>
+          <p className="text-sm font-semibold text-primary">كيف يعمل الموقع؟</p>
           <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-            كل ما تحتاجه للوصول للسعر المناسب
+            ثلاث خطوات للوصول للسعر المناسب
           </h2>
         </div>
         <div className="mt-7 grid gap-4 sm:mt-9 sm:grid-cols-2 lg:grid-cols-3">
