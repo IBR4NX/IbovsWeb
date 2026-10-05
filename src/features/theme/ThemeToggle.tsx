@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "@/app/store";
+import type { RootState } from "../../lib/store";
 import {setTheme } from "./themeSlice";
 import { IoSunnyOutline ,IoMoonOutline,IoContrastSharp  } from "react-icons/io5";
 export default function ThemeBtn() {

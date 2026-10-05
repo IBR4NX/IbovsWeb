@@ -1,7 +1,7 @@
 import App from "./app/App.tsx";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import { store } from "./app/store.ts";
+import { store } from "./lib/store.ts";
 import "./lib/i18n.ts";
 import "./index.css";
 // import { StrictMode } from "react";

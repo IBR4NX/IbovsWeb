@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
-import type { RootState } from "@/app/store";
+import type { RootState } from "@/lib/store";
 import { menu } from "@/features/navigation/mobileMenuSlice";
 import ThemeBtn from "@/features/theme/ThemeToggle";
 
