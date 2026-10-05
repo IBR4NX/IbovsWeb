@@ -4,7 +4,7 @@ import {  useState } from "react";
 export default function Sping({ outTime }: { outTime: boolean }) {
   const [showIntro, setShowIntro] = useState(true);
   if(outTime===false){
-      setTimeout(()=>setShowIntro(false),100);
+      setTimeout(()=>setShowIntro(false),10);
     }
       
   return (

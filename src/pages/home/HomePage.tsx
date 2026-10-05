@@ -104,12 +104,15 @@ export default function HomePage() {
         </div>
         <div className="mt-7 grid gap-4 sm:mt-9 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map(({ title, description, icon: Icon }) => (
-            <Card key={title} className="py-0 transition-transform duration-200 hover:-translate-y-1">
+            <Card key={title}  className="py-0 ">
               <CardContent className="p-5 sm:p-6">
+<div className="flex items-center justify- gap-4">
+
                 <div className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                   <Icon className="size-5" />
                 </div>
-                <h3 className="mt-5 text-lg font-bold">{title}</h3>
+                <h3 className=" text-xl font-bold">{title}</h3>
+                </div>
                 <p className="mt-2 text-sm leading-7 text-muted-foreground">{description}</p>
               </CardContent>
             </Card>
