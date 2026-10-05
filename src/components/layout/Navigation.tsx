@@ -4,13 +4,12 @@ import { useTranslation } from "react-i18next";
  const navigation = [
   { name: "home", href: "/" },
   { name: "prices", href: "/prices" },
-  { name: "search", href: "/prices" },
   { name: "contact", href: "/contact" },
   // {name:"products", href:"/catalog/products" },
   // {name:"cities", href:"/catalog/cities" },
   // {name:"categories", href:"/catalog/categories" },
-  { name: "services", href: "/#" },
-  { name: "profile", href: "/#" },
+  { name: "about", href: "/about" },
+   { name: " إدارة المنصة", href: "/dashboard" },
   { name: "help", href: "/help" }, 
 ];
 function List({lang}: {lang: string}) {

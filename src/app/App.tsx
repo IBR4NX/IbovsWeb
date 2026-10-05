@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion";
 const Home = React.lazy(() => import("@/pages/home/HomePage"));
 const About = React.lazy(() => import("@/pages/support/AboutPage"));
 const Prices = React.lazy(() => import("@/pages/prices/PricesPage"));
-const Blog = React.lazy(() => import("@/pages/support/BlogPage"));
+// const Blog = React.lazy(() => import("@/pages/support/BlogPage"));
 const Careers = React.lazy(() => import("@/pages/support/CareersPage"));
 const Help = React.lazy(() => import("@/pages/support/HelpPage"));
 const Faq = React.lazy(() => import("@/pages/support/FaqPage"));
@@ -79,13 +79,12 @@ function AnimatedRoutes() {
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/prices" element={<Prices />} />
-              <Route path="/catalog/products" element={<Products />} />
               <Route path="/catalog" element={<Catalog />} />
+              <Route path="/catalog/products" element={<Products />} />
               <Route path="/catalog/categories" element={<Categories />} />
               <Route path="/catalog/cities" element={<Cities />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/help" element={<Help />} />
               <Route path="/faq" element={<Faq />} />

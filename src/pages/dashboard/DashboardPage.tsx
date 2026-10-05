@@ -18,7 +18,7 @@ import {
   type DashboardStatistics,
 } from "@/features/dashboard/dashboardApi";
 
-const numberFormat = new Intl.NumberFormat("ar-YE");
+const numberFormat = new Intl.NumberFormat("en-US");
 
 const emptyStatistics: DashboardStatistics = {
   total_users: 0,
@@ -158,7 +158,7 @@ export default function DashboardPage() {
                   <div className="flex size-11 transition-all duration-1000 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                     <Icon className="size-5" />
                   </div>
-                  <p className="text-4xl font-bold px-4 ">
+                  <p className="text-2xl font-bold px-4 ">
                     {loading ? "—" : format(statistics[key])}
                   </p>
                 </div>
@@ -175,7 +175,7 @@ export default function DashboardPage() {
             <CardContent key={key} className="p-5">
               <div className=" flex items-center gap-2">
                 <Icon className={`size-5 ${color}`} />
-                <p className={` text-3xl font-bold tabular-nums ${color} `}>
+                <p className={` text-2xl font-bold tabular-nums ${color} `}>
                   {loading ? "—" : format(statistics[key])}
                 </p>
               </div>
