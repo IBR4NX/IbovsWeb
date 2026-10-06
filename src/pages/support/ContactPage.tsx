@@ -1,25 +1,25 @@
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { Seo } from "@/lib/seo";
 
 export default function Contact() {
     const { t } = useTranslation();
-    useEffect(() => {
-    document.title = "Contact Us | Ibovs";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute(
-        "content",
-        "تواصل معنا عبر نموذج الاتصال أو وسائل التواصل الخاصة بموقع Ibovs."
-      );
-    }
-  }, []);
     return (
         <main className="max-w-3xl  px-4 py-12 ">
+            <Seo
+                canonicalPath="/contact"
+                title="تواصل معنا بخصوص أسعار المنتجات في اليمن"
+                description="تواصل مع فريق Markets YE للاستفسارات المتعلقة بعرض أسعار المنتجات أو المدن أو التصنيفات داخل المنصة."
+            />
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl font-bold mb-6 ">{t("contacts.title")}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 ">
+                تواصل معنا
+            </h1>
 
             {/* Intro */}
-            <p className="mb-8 leading-relaxed">{t("contacts.intro")}</p>
+            <p className="mb-8 leading-relaxed">
+                إذا عندك ملاحظة بخصوص منتج أو مدينة أو تصنيف في أسعار اليمن،
+                يمكنك التواصل معنا عبر البريد الموضح أدناه.
+            </p>
 
             {/* Contact Info Card */}
             <div className=" rounded-xl p-6 shadow-sm">

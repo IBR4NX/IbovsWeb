@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight, RefreshCw } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 
 import { PriceFilters } from "@/components/prices/PriceFilters";
 import PriceList from "@/components/prices/PriceList";
@@ -14,6 +13,7 @@ import type {
   PricesResponse,
 } from "@/features/catalog/types";
 import { api } from "@/lib/api";
+import { Seo, absoluteUrl } from "@/lib/seo";
 
 interface OptionsResponse {
   data: FilterOption[];
@@ -34,6 +34,7 @@ interface PricesScopePageProps {
   invalidLabel: string;
   loadingLabel: (value: string, extraValue: string) => string;
   paramName: string;
+  summary: (value: string, extraValue: string) => string;
   title: (value: string, extraValue: string) => string;
 }
 
@@ -97,6 +98,7 @@ export default function PricesScopePage({
   invalidLabel,
   loadingLabel,
   paramName,
+  summary,
   title,
 }: PricesScopePageProps) {
   const params = useParams();
@@ -236,11 +238,23 @@ export default function PricesScopePage({
 
   return (
     <>
-      <Helmet>
-        <title>{pageTitle} | Markets YE</title>
-        <meta name="description" content={description(fixedValue, extraFixedValue)} />
-        <link rel="canonical" href={canonicalUrlWithExtra} />
-      </Helmet>
+      <Seo
+        canonicalPath={new URL(canonicalUrlWithExtra).pathname}
+        title={pageTitle}
+        description={description(fixedValue, extraFixedValue)}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: pageTitle,
+          description: description(fixedValue, extraFixedValue),
+          url: absoluteUrl(new URL(canonicalUrlWithExtra).pathname),
+          isPartOf: {
+            "@type": "WebSite",
+            name: "Markets YE",
+            url: absoluteUrl("/"),
+          },
+        }}
+      />
 
       <main
         dir="rtl"
@@ -262,6 +276,9 @@ export default function PricesScopePage({
               <h1 className="text-2xl font-bold tracking-tight">
                 {pageTitle}
               </h1>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">
+                {summary(fixedValue, extraFixedValue)}
+              </p>
             </div>
 
             <Button
@@ -308,6 +325,19 @@ export default function PricesScopePage({
               )
             }
           />
+
+          <Card className="mb-6 border-border/70 bg-muted/30 py-0">
+            <CardContent className="p-4 text-sm leading-7 text-muted-foreground">
+              <h2 className="mb-1 font-semibold text-foreground">
+                نتائج مخصصة حسب البيانات المتاحة
+              </h2>
+              <p>
+                يتم عرض الأسعار المطابقة للفلاتر الحالية فقط. إذا لم تظهر
+                نتيجة، فهذا يعني أن البيانات غير متوفرة حالياً لهذا البحث أو أن
+                الفلاتر بحاجة لتغيير.
+              </p>
+            </CardContent>
+          </Card>
 
           {loading && (
             <Card>

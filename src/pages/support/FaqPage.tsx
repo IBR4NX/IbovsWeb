@@ -1,35 +1,27 @@
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
-import { GoogleGenAI } from "@google/genai";
-
-const ai = new GoogleGenAI({});
-
-async function gemini() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
-    contents: "Explain how AI works in a few words",
-  });
-  console.log(response.text);
-}
-
-await gemini();
+import { Seo } from "@/lib/seo";
 export default function Faq() {
   const { t,ready } = useTranslation("faq");
   const items = t("items", { returnObjects: true }) as Array<{ q: string; a: string }>;
 
-  useEffect(() => {
-    document.title = t("title") || "FAQ";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", t("description") || "Frequently asked questions");
-  }, [t]);
   if (!ready) {
     return null;
   }
   
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{t("title")}</h1>
-      <p className="mb-6 leading-relaxed">{t("intro")}</p>
+      <Seo
+        canonicalPath="/faq"
+        title="أسئلة شائعة عن أسعار المنتجات في اليمن"
+        description="إجابات مختصرة عن طريقة عرض أسعار المنتجات في اليمن، وكيفية البحث حسب المدينة أو المنتج أو الفئة داخل Markets YE."
+      />
+      <h1 className="text-3xl md:text-4xl font-bold mb-6">
+        أسئلة شائعة عن أسعار المنتجات
+      </h1>
+      <p className="mb-6 leading-relaxed">
+        هنا تجد إجابات تساعدك على فهم طريقة البحث عن الأسعار، ولماذا قد لا
+        يظهر سعر منتج أو مدينة في بعض الأوقات.
+      </p>
 
       <section className="space-y-4">
         {Array.isArray(items) && items.length > 0 ? (

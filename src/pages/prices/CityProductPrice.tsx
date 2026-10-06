@@ -19,7 +19,10 @@ export default function CityProductPrice() {
         `جارٍ تحميل أسعار ${productName} في ${cityName}...`
       }
       paramName="cityName"
-      title={(cityName, productName) => `أسعار ${productName} في ${cityName}`}
+      summary={(cityName, productName) =>
+        `هذه نتيجة مركزة لمن يبحث عن سعر ${productName} في ${cityName} تحديداً، مع بقاء فلتر الفئة متاحاً إذا احتجت تضييق النتائج.`
+      }
+      title={(cityName, productName) => `سعر ${productName} في ${cityName} اليوم`}
     />
   );
 }

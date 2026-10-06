@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import {
   ArrowLeft,
   BadgeCheck,
@@ -13,43 +12,52 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Seo, absoluteUrl } from "@/lib/seo";
 
 const highlights = [
   {
-    title: "ابحث عن المنتج",
-    description: "اكتب اسم المنتج الذي تريد معرفة سعره في خانة البحث.",
+    title: "ابحث عن سعر المنتج اليوم",
+    description: "اكتب اسم المنتج وشوف الأسعار المتاحة له في المدن اليمنية.",
     icon: PackageSearch,
   },
   {
-    title: "اختر المدينة والفئة",
-    description: "حدّد المدينة والفئة بالاسم لتضييق النتائج المناسبة لك.",
+    title: "حدد المدينة أو الفئة",
+    description: "فلتر الأسعار حسب صنعاء أو تعز أو عدن أو حسب فئة المنتج.",
     icon: MapPin,
   },
   {
-    title: "قارن السعر",
-    description: "اطّلع على السعر والكمية وآخر تحديث قبل اتخاذ قرار الشراء.",
+    title: "قارن قبل الشراء",
+    description: "راجع السعر والكمية وآخر تحديث لتعرف فرق الأسعار بين المدن.",
     icon: TrendingUp,
   },
 ];
 
 const stats = [
-  { label: "طريقة بحث", value: "بسيطة" },
-  { label: "الفلاتر", value: "بالاسم" },
-  { label: "التحديث", value: "مستمر" },
-  { label: "الوصول", value: "من أي جهاز" },
+  { label: "بحث عن السعر", value: "بالمنتج" },
+  { label: "مقارنة", value: "بين المدن" },
+  { label: "الفلاتر", value: "مدينة وفئة" },
+  { label: "الوصول", value: "من الجوال" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      <Helmet>
-        <title>Markets YE | أسعار المنتجات في اليمن</title>
-
-        <meta
-          name="description"
-          content="Markets YE منصة لعرض أسعار المنتجات في اليمن حسب المنتج والمدينة، مع مراجعة الأسعار المرسلة من المستخدمين واعتمادها."
-        />
-      </Helmet>
+      <Seo
+        canonicalPath="/"
+        title="أسعار اليوم في اليمن للمنتجات والسلع"
+        description="تابع أسعار المنتجات والسلع في اليمن حسب المدينة والفئة، وابحث عن سعر المنتج اليوم في صنعاء أو تعز أو عدن من مكان واحد."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Markets YE",
+          url: absoluteUrl("/"),
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${absoluteUrl("/prices")}?search={search_term_string}`,
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       <main dir="rtl" className="overflow-x-clip bg-background text-foreground">
         <section className="relative isolate overflow-hidden">
           <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-linear-to-b from-primary/10 via-primary/5 to-transparent sm:h-96" />
@@ -61,14 +69,14 @@ export default function HomePage() {
                 className="mb-5 h-7 px-3 text-xs sm:text-sm"
               >
                 <BadgeCheck />
-                دليل الأسعار المحلي
+                دليل أسعار اليمن
               </Badge>
               <h1 className="text-4xl font-black tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                أسعار المنتجات في اليمن
+                أسعار اليوم في اليمن للمنتجات والسلع
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg sm:leading-9">
-                السوق اليمني يجمع لك أسعار المنتجات بطريقة سهلة، لتقارن وتبحث
-                حسب المدينة والفئة من أي جهاز.
+                ابحث عن أسعار المنتجات في اليمن حسب المدينة والفئة، وقارن
+                السعر المتاح في صنعاء وتعز وعدن وبقية المدن عند توفر البيانات.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
                 <Button
@@ -85,7 +93,7 @@ export default function HomePage() {
                   size="lg"
                   className="h-11 w-full sm:w-auto"
                 >
-                  كيف يعمل الموقع؟
+                  كيف أبحث عن السعر؟
                 </Button>
               </div>
             </div>
@@ -114,10 +122,10 @@ export default function HomePage() {
         >
           <div className="max-w-2xl">
             <p className="text-sm font-semibold text-primary">
-              كيف يعمل الموقع؟
+              طريقة متابعة أسعار المنتجات
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-              ثلاث خطوات للوصول للسعر المناسب
+              من اسم المنتج إلى مقارنة الأسعار بين المدن اليمنية
             </h2>
           </div>
           <div className="mt-7 grid gap-4 sm:mt-9 sm:grid-cols-2 lg:grid-cols-3">
@@ -147,11 +155,12 @@ export default function HomePage() {
                   <ShieldCheck className="size-5" />
                 </div>
                 <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
-                  ابدأ بالبحث الآن
+                  ابحث عن سعر المنتج اليوم في اليمن
                 </h2>
                 <p className="mt-2 text-sm leading-7 text-primary-foreground/75 sm:text-base">
-                  استخدم الفلاتر النصية للوصول إلى المنتج والمدينة والفئة التي
-                  تهمك.
+                  استخدم صفحة الأسعار للوصول إلى أسعار المواد الغذائية
+                  والمنتجات المتاحة حسب المدينة والتصنيف، بدون ادعاءات أو
+                  أرقام غير موجودة في البيانات.
                 </p>
               </div>
               <Button

@@ -12,7 +12,10 @@ export default function ProductPricesPage() {
       invalidLabel="اسم المنتج غير صحيح."
       loadingLabel={(productName) => `جارٍ تحميل أسعار ${productName}...`}
       paramName="productName"
-      title={(productName) => `أسعار ${productName}`}
+      summary={(productName) =>
+        `تعرض الصفحة أسعار ${productName} المتاحة في اليمن، ويمكنك استخدام فلتر المدينة لمعرفة السعر في صنعاء أو تعز أو عدن عند توفر البيانات.`
+      }
+      title={(productName) => `سعر ${productName} اليوم في اليمن`}
     />
   );
 }

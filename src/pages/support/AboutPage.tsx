@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -7,18 +6,27 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Seo, absoluteUrl } from "@/lib/seo";
 
 export default function AboutPage() {
   return (
     <>
-      <Helmet>
-        <title>من نحن | Markets YE</title>
-
-        <meta
-          name="description"
-          content="تعرف على Markets YE، منصة تهدف إلى توفير معلومات محدثة عن أسعار المنتجات في اليمن حسب المدن والتصنيفات."
-        />
-      </Helmet>
+      <Seo
+        canonicalPath="/about"
+        title="من نحن - منصة متابعة أسعار المنتجات في اليمن"
+        description="تعرف على Markets YE ودورها في تنظيم عرض أسعار المنتجات في اليمن حسب المدن والتصنيفات اعتماداً على البيانات المتاحة والمراجعة."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "من نحن",
+          url: absoluteUrl("/about"),
+          about: {
+            "@type": "Organization",
+            name: "Markets YE",
+            url: absoluteUrl("/"),
+          },
+        }}
+      />
 
       <main className="container mx-auto max-w-5xl px-4 py-10">
         {/* Hero */}
@@ -28,12 +36,12 @@ export default function AboutPage() {
           </Badge>
 
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            من نحن
+            من نحن في Markets YE
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            منصة تساعدك على معرفة أسعار المنتجات في مختلف المدن اليمنية
-            بطريقة سهلة ومنظمة.
+            منصة تساعد المستخدم في اليمن على متابعة أسعار المنتجات والسلع حسب
+            المدينة والتصنيف، مع عرض البيانات المتاحة بطريقة واضحة ومنظمة.
           </p>
         </section>
 
@@ -48,8 +56,8 @@ export default function AboutPage() {
 
             <CardContent className="leading-7 text-muted-foreground">
               Markets YE منصة لعرض أسعار المنتجات في اليمن حسب المنتج
-              والمدينة والتصنيف، بهدف تسهيل الوصول إلى معلومات الأسعار
-              بطريقة واضحة ومنظمة.
+              والمدينة والتصنيف. الهدف هو تسهيل البحث عن سعر المنتج اليوم
+              ومقارنة الأسعار بين المدن اليمنية عند توفر البيانات.
             </CardContent>
           </Card>
 
@@ -59,9 +67,9 @@ export default function AboutPage() {
             </CardHeader>
 
             <CardContent className="leading-7 text-muted-foreground">
-              يمكن للمستخدمين إرسال أسعار المنتجات التي يجدونها في الأسواق،
-              ثم تتم مراجعة البيانات من قبل الموظفين قبل اعتمادها وعرضها
-              ضمن الأسعار الحالية.
+              تعتمد المنصة على الأسعار الموجودة في النظام والبيانات التي تتم
+              مراجعتها قبل عرضها. لا نضيف أسعاراً غير متوفرة، ولا نعرض ادعاءات
+              لا تدعمها البيانات.
             </CardContent>
           </Card>
         </section>

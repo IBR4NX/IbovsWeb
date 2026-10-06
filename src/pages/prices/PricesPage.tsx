@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { RefreshCw } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { PriceFilters } from "@/components/prices/PriceFilters";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { api } from "@/lib/api";
 import PriceList from "@/components/prices/PriceList";
 import type {
@@ -11,6 +11,7 @@ import type {
   PriceRecord,
   PricesResponse,
 } from "@/features/catalog/types";
+import { Seo, absoluteUrl } from "@/lib/seo";
 
 interface OptionsResponse {
   data: FilterOption[];
@@ -101,24 +102,40 @@ export default function Prices() {
   //#endregion
   return (
     <>
-      <Helmet>
-        <title>أسعار المنتجات في اليمن | Markets YE</title>
-
-        <meta
-          name="description"
-          content="تعرّف على أحدث أسعار المنتجات في اليمن حسب المنتج والمدينة، مع إمكانية البحث والتصفية حسب التصنيف والمدينة."
-        />
-      </Helmet>
+      <Seo
+        canonicalPath="/prices"
+        title="أسعار المنتجات والسلع في اليمن اليوم"
+        description="ابحث في أسعار المنتجات في اليمن حسب المدينة أو الفئة، وقارن أسعار السلع والمواد الغذائية المتاحة في صنعاء وتعز وعدن وبقية المدن."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "أسعار المنتجات والسلع في اليمن",
+          description:
+            "صفحة لعرض أسعار المنتجات في اليمن مع فلترة حسب المدينة والفئة واسم المنتج.",
+          url: absoluteUrl("/prices"),
+          isPartOf: {
+            "@type": "WebSite",
+            name: "Markets YE",
+            url: absoluteUrl("/"),
+          },
+        }}
+      />
       <main
         dir="rtl"
         className="min-h-screen bg-background px-4 py-6 text-foreground"
       >
         <div className="mx-auto w-full max-w-3xl">
           {/* Header */}
-          <div className="mb-5 flex items-center justify-between gap-4">
-            <h1 className="text-2xl font-bold tracking-tight">
-              أسعار المنتجات في اليمن
-            </h1>
+          <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight">
+                أسعار المنتجات والسلع في اليمن اليوم
+              </h1>
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                استخدم البحث والفلاتر لمتابعة أسعار المنتجات حسب المدينة
+                والفئة. النتائج تعتمد على البيانات المتاحة حالياً من النظام.
+              </p>
+            </div>
 
             <Button
               type="button"
@@ -144,6 +161,19 @@ export default function Prices() {
             }
             onClear={() => setFilters(initialFilters)}
           />
+
+          <Card className="mb-6 border-border/70 bg-muted/30 py-0">
+            <CardContent className="p-4 text-sm leading-7 text-muted-foreground">
+              <h2 className="mb-1 font-semibold text-foreground">
+                كيف تستخدم صفحة الأسعار؟
+              </h2>
+              <p>
+                اكتب اسم المنتج لمعرفة سعره اليوم في اليمن، أو اختر مدينة مثل
+                صنعاء أو تعز أو عدن عند توفرها في القائمة. يمكنك أيضاً اختيار
+                فئة لمتابعة أسعار المواد الغذائية أو السلع ضمن نفس التصنيف.
+              </p>
+            </CardContent>
+          </Card>
 
           {/* Loading */}
           {loading && (

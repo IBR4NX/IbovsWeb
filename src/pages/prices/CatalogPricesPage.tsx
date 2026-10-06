@@ -3,7 +3,7 @@ import PricesScopePage from "./PricesScopePage";
 export default function CatalogPricesPage() {
   return (
     <PricesScopePage
-      canonicalPath="/catalog"
+      canonicalPath="/category"
       description={(categoryName) =>
         `تابع أحدث أسعار منتجات ${categoryName} في اليمن، مع إمكانية التصفية حسب المدينة والبحث داخل التصنيف.`
       }
@@ -12,7 +12,10 @@ export default function CatalogPricesPage() {
       invalidLabel="اسم التصنيف غير صحيح."
       loadingLabel={(categoryName) => `جارٍ تحميل أسعار ${categoryName}...`}
       paramName="categoryName"
-      title={(categoryName) => `أسعار ${categoryName}`}
+      summary={(categoryName) =>
+        `استخدم هذه الصفحة لمتابعة أسعار ${categoryName} في المدن اليمنية المتاحة، ثم اختر المدينة إذا أردت مقارنة النتائج.`
+      }
+      title={(categoryName) => `أسعار ${categoryName} في اليمن`}
     />
   );
 }

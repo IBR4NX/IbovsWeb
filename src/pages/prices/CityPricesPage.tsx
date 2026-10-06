@@ -12,7 +12,10 @@ export default function CityPricesPage() {
       invalidLabel="اسم المدينة غير صحيح."
       loadingLabel={(cityName) => `جارٍ تحميل أسعار ${cityName}...`}
       paramName="cityName"
-      title={(cityName) => `أسعار المنتجات في ${cityName}`}
+      summary={(cityName) =>
+        `هذه الصفحة تعرض أسعار المنتجات المتاحة في ${cityName} فقط، مع إمكانية تضييق النتائج حسب الفئة أو اسم المنتج.`
+      }
+      title={(cityName) => `أسعار المنتجات في ${cityName} اليوم`}
     />
   );
 }
