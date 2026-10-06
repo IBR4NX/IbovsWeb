@@ -1,11 +1,12 @@
 import PricesScopePage from "./PricesScopePage";
+import  { getQueryString } from "@/lib/query";
 
 export default function CityProductPrice() {
   return (
     <PricesScopePage
       canonicalPath="/city"
       description={(cityName, productName) =>
-        `تابع أحدث أسعار ${productName} في ${cityName}، مع نتائج مخصصة للمدينة والمنتج فقط.`
+        `تابع أحدث أسعار ${getQueryString(productName)} في ${getQueryString(cityName)}، مع نتائج مخصصة للمدينة والمنتج فقط.`
       }
       emptyLabel="لا توجد أسعار متاحة لهذا المنتج في هذه المدينة حالياً."
       extraFixedFilter={{
@@ -16,13 +17,13 @@ export default function CityProductPrice() {
       fixedFilterKey="cityName"
       invalidLabel="اسم المدينة أو المنتج غير صحيح."
       loadingLabel={(cityName, productName) =>
-        `جارٍ تحميل أسعار ${productName} في ${cityName}...`
+        `جارٍ تحميل أسعار ${getQueryString(productName)} في ${getQueryString(cityName)}...`
       }
       paramName="cityName"
       summary={(cityName, productName) =>
-        `هذه نتيجة مركزة لمن يبحث عن سعر ${productName} في ${cityName} تحديداً، مع بقاء فلتر الفئة متاحاً إذا احتجت تضييق النتائج.`
+        `هذه نتيجة مركزة لمن يبحث عن سعر ${getQueryString(productName)} في ${getQueryString(cityName)} تحديداً، مع بقاء فلتر الفئة متاحاً إذا احتجت تضييق النتائج.`
       }
-      title={(cityName, productName) => `سعر ${productName} في ${cityName} اليوم`}
+      title={(cityName, productName) => `سعر ${getQueryString(productName)} في ${getQueryString(cityName)} اليوم`}
     />
   );
 }
