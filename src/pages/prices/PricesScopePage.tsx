@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight, RefreshCw } from "lucide-react";
+import  { getQueryString } from "@/lib/query";
 
 import { PriceFilters } from "@/components/prices/PriceFilters";
 import PriceList from "@/components/prices/PriceList";
@@ -38,8 +39,8 @@ interface PricesScopePageProps {
   title: (value: string, extraValue: string) => string;
 }
 
-function decodeRouteParam(param?: string) {
-  return decodeURIComponent(param ?? "").trim();
+export function decodeRouteParam(param?: string) {
+  return decodeURIComponent(getQueryString(param)?? "").trim();
 }
 
 function fixedOption(value: string): FilterOption[] {
@@ -264,7 +265,7 @@ export default function PricesScopePage({
           <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <Button
-                render={<Link to="/prices" />}
+                render={<Link to={`/city/`+fixedValue}/>}
                 type="button"
                 variant="ghost"
                 size="sm"
