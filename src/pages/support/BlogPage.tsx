@@ -1,20 +1,24 @@
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { Seo } from "@/lib/seo";
 
 export default function Blog() {
   const { t } = useTranslation("blog");
   const posts = t("posts", { returnObjects: true }) as Array<{ title: string; excerpt: string }>;
 
-  useEffect(() => {
-    document.title = t("title") || "Blog";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", t("description") || "Blog page");
-  }, [t]);
-
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{t("title")}</h1>
-      <p className="mb-6 leading-relaxed">{t("intro")}</p>
+      <Seo
+        canonicalPath="/blog"
+        title="مقالات وتحديثات أسعار المنتجات في اليمن"
+        description="مقالات وتحديثات حول متابعة أسعار المنتجات والسلع في اليمن عند توفر محتوى منشور داخل Markets YE."
+      />
+      <h1 className="text-3xl md:text-4xl font-bold mb-6">
+        مقالات وتحديثات أسعار المنتجات
+      </h1>
+      <p className="mb-6 leading-relaxed">
+        مساحة للمقالات والتحديثات المرتبطة بأسعار المنتجات في اليمن، وطريقة
+        قراءة تغير الأسعار بين المدن عند توفر منشورات.
+      </p>
 
       {Array.isArray(posts) && posts.length > 0 ? (
         <section className="space-y-6">

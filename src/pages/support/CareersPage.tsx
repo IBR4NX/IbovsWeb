@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { Seo } from "@/lib/seo";
 
 export default function Careers() {
   const { t } = useTranslation("careers");
@@ -11,16 +11,20 @@ export default function Careers() {
     summary?: string;
   }>;
 
-  useEffect(() => {
-    document.title = t("title") || "Careers";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", t("description") || "Careers page");
-  }, [t]);
-
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{t("title")}</h1>
-      <p className="mb-6 leading-relaxed">{t("intro")}</p>
+      <Seo
+        canonicalPath="/careers"
+        title="الوظائف في Markets YE"
+        description="تابع فرص العمل المتاحة لدى Markets YE عندما تتوفر، والمجالات المرتبطة بإدارة بيانات أسعار المنتجات في اليمن."
+      />
+      <h1 className="text-3xl md:text-4xl font-bold mb-6">
+        الوظائف في Markets YE
+      </h1>
+      <p className="mb-6 leading-relaxed">
+        عندما تتوفر فرص عمل مرتبطة بتطوير المنصة أو مراجعة بيانات أسعار
+        المنتجات في اليمن، ستظهر هنا.
+      </p>
 
       {Array.isArray(positions) && positions.length > 0 ? (
         <ul className="space-y-6">

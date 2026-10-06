@@ -6,6 +6,7 @@ import {
 } from "@/components/catalog/CatalogManager";
 import { getCatalogItems } from "@/features/catalog/catalogApi";
 import type { Category, Product } from "@/features/catalog/adminTypes";
+import { Seo } from "@/lib/seo";
 
 export default function ProductsPage() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -40,20 +41,28 @@ export default function ProductsPage() {
   ];
 
   return (
-    <CatalogManager<Product>
-      title="المنتجات"
-      singular="منتج"
-      description="أدخل المنتج باختيار فئة نشطة ثم الاسم والوصف والكمية والوحدة."
-      resource="/products"
-      fields={fields}
-      columns={[
-        { key: "name", label: "المنتج" },
-        { key: "category_name", label: "الفئة" },
-        { key: "description", label: "الوصف" },
-        { key: "quantity", label: "الكمية" },
-        { key: "unit", label: "الوحدة" },
-        { key: "is_active", label: "الحالة" },
-      ]}
-    />
+    <>
+      <Seo
+        canonicalPath="/catalog/products"
+        title="إدارة المنتجات"
+        description="صفحة داخلية لإدارة المنتجات التي تظهر في أسعار Markets YE."
+        noindex
+      />
+      <CatalogManager<Product>
+        title="المنتجات"
+        singular="منتج"
+        description="أدخل المنتج باختيار فئة نشطة ثم الاسم والوصف والكمية والوحدة."
+        resource="/products"
+        fields={fields}
+        columns={[
+          { key: "name", label: "المنتج" },
+          { key: "category_name", label: "الفئة" },
+          { key: "description", label: "الوصف" },
+          { key: "quantity", label: "الكمية" },
+          { key: "unit", label: "الوحدة" },
+          { key: "is_active", label: "الحالة" },
+        ]}
+      />
+    </>
   );
 }

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { post } from "@/lib/api";
 import Loading from "@/components/feedback/Loading";
 import { useTranslation } from "react-i18next";
+import { Seo } from "@/lib/seo";
 
 export default function Register() {
   const nav = useNavigate();
@@ -56,6 +57,12 @@ export default function Register() {
   }
   return (
     <>
+      <Seo
+        canonicalPath="/register"
+        title="إنشاء حساب"
+        description="صفحة إنشاء حساب جديد في Markets YE."
+        
+      />
 
       {messange && <p>{messange}</p>}
       <div className="min-h-screen flex items-center justify-center py-6 px-4 sm:py-12 sm:px-6 lg:px-8">

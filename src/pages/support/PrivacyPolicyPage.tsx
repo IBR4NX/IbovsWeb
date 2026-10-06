@@ -1,19 +1,9 @@
 import { useTranslation } from "react-i18next";
 // import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { Seo } from "@/lib/seo";
 export default function PrivacyPolicy() {
 const { t, ready } = useTranslation("privacy");
 
-useEffect(() => {
-  document.title = "Privacy Policy | Ibovs";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute(
-        "content",
-        "سياسة الخصوصية الخاصة بموقع Ibovs وكيفية التعامل مع بيانات المستخدمين."
-      );
-    }
-  }, []);
 if (!ready) {
       return <div>Loading...</div>;
   } 
@@ -41,6 +31,11 @@ if (!ready) {
 
   return (
     <div className="*:max-w-4xl    px-5 py-12  leading-relaxed">
+      <Seo
+        canonicalPath="/privacy-policy"
+        title="سياسة الخصوصية في Markets YE"
+        description="سياسة الخصوصية توضّح كيفية تعامل Markets YE مع بيانات المستخدمين أثناء استخدام صفحات أسعار المنتجات في اليمن."
+      />
  
      
       <h1 className="text-3xl md:text-4xl font-bold mb-6 ">{t("title")}</h1>

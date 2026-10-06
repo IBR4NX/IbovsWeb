@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { Seo } from "@/lib/seo";
 
 const destinations = [
   {
@@ -42,6 +43,12 @@ export default function CatalogPage() {
       dir="rtl"
       className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8"
     >
+      <Seo
+        canonicalPath="/catalog"
+        title="إدارة الكتالوج"
+        description="صفحة داخلية لإدارة منتجات وفئات ومدن Markets YE."
+        noindex
+      />
       <div className="max-w-2xl">
         <p className="text-sm font-medium text-primary">إدارة المنصة</p>
         <h1 className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">

@@ -3,6 +3,7 @@ import {
   type CatalogField,
 } from "@/components/catalog/CatalogManager";
 import type { Category } from "@/features/catalog/adminTypes";
+import { Seo } from "@/lib/seo";
 
 const fields: CatalogField<Category>[] = [
   { key: "name", label: "اسم الفئة", type: "text", required: true },
@@ -12,17 +13,25 @@ const fields: CatalogField<Category>[] = [
 
 export default function CategoriesPage() {
   return (
-    <CatalogManager<Category>
-      title="الفئات"
-      singular="فئة"
-      description="نظّم المنتجات ضمن فئات واضحة."
-      resource="/categories"
-      fields={fields}
-      columns={[
-        { key: "name", label: "الفئة" },
-        { key: "description", label: "الوصف" },
-        { key: "is_active", label: "الحالة" },
-      ]}
-    />
+    <>
+      <Seo
+        canonicalPath="/catalog/categories"
+        title="إدارة الفئات"
+        description="صفحة داخلية لإدارة فئات المنتجات في Markets YE."
+        noindex
+      />
+      <CatalogManager<Category>
+        title="الفئات"
+        singular="فئة"
+        description="نظّم المنتجات ضمن فئات واضحة."
+        resource="/categories"
+        fields={fields}
+        columns={[
+          { key: "name", label: "الفئة" },
+          { key: "description", label: "الوصف" },
+          { key: "is_active", label: "الحالة" },
+        ]}
+      />
+    </>
   );
 }

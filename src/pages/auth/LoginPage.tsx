@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Loading from "@/components/feedback/Loading";
 import { post, setToken } from "@/lib/api";
+import { Seo } from "@/lib/seo";
 
 const  Login: React.FC =  () => {
 const { t,ready } = useTranslation('common');
@@ -37,6 +38,12 @@ const { t,ready } = useTranslation('common');
   }
   return (
     <div className="min-h-screen flex items-center justify-center py-6 px-4 sm:py-12 sm:px-6 lg:px-8">
+      <Seo
+        canonicalPath="/login"
+        title="تسجيل الدخول"
+        description="صفحة تسجيل الدخول لإدارة حساب المستخدم في Markets YE."
+        
+      />
       <div className="max-w-sm sm:max-w-md w-xs space-y-6 sm:space-y-8 bg-alpha-5 rounded-2xl p-6 sm:p-8 shadow-lg">
           <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold "> {t('login.title')}</h2>
         <form className="mt-6 sm:mt-8 space-y-4 sm:space-y-6" onSubmit={handleSubmit}>

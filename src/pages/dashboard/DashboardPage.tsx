@@ -17,6 +17,7 @@ import {
   getDashboardStatistics,
   type DashboardStatistics,
 } from "@/features/dashboard/dashboardApi";
+import { Seo } from "@/lib/seo";
 
 const numberFormat = new Intl.NumberFormat("en-US");
 
@@ -117,6 +118,12 @@ export default function DashboardPage() {
       dir="rtl"
       className="mx-auto w-full transition-all  duration-300 ease-in max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8"
     >
+      <Seo
+        canonicalPath="/dashboard"
+        title="لوحة تحكم الأسعار"
+        description="لوحة داخلية لمتابعة إحصاءات منتجات وأسعار Markets YE."
+        noindex
+      />
       <div>
         <h1 className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">
           لوحة التحكم
