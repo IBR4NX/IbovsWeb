@@ -7,7 +7,7 @@ export default function ThemeBtn() {
   const dispatchTheme = useDispatch();
   return (
     <>  
-        <button onClick={()=>dispatchTheme(setTheme())}
+        <button onClick={()=>dispatchTheme(setTheme())} aria-label="mode theme"
           className={` rounded-full m-auto flex cursor-pointer text-black dark:text-white *:size-6 size-8 p-1 `}>
             {/* <IoColorPaletteOutline/> */}
             {theme === "light" ? <IoSunnyOutline/> : theme==="dark"?<IoMoonOutline/>:<IoContrastSharp/>} 
