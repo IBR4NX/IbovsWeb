@@ -12,6 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { createCatalogItem, getCatalogItems, updateCatalogItem } from "@/features/catalog/catalogApi";
 import type { CatalogEntity, CatalogPayload } from "@/features/catalog/adminTypes";
+import { Link } from "react-router-dom";
 
 const EMPTY_VALUE = "__empty__";
 
@@ -35,6 +36,7 @@ interface CatalogManagerProps<T extends CatalogEntity> {
   title: string;
   description: string;
   singular: string;
+  link?:string,
   resource: string;
   fields: CatalogField<T>[];
   columns: Array<{ key: keyof T; label: string }>;
@@ -65,6 +67,7 @@ export function CatalogManager<T extends CatalogEntity>({
   description,
   singular,
   resource,
+  link,
   fields,
   columns,
 }: CatalogManagerProps<T>) {
@@ -188,7 +191,9 @@ export function CatalogManager<T extends CatalogEntity>({
         {loading ? <p className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">جارٍ تحميل البيانات...</p> : items.length === 0 ? <p className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">لا توجد بيانات مطابقة.</p> : <>
           <div className="grid gap-3 md:hidden">
             {items.map((item) => (
-              <article key={item.id} className="rounded-xl border bg-card p-4">
+              <Link  key={item.id}  to={link+"/"+item.name} >
+
+              <article  key={item.id} className="rounded-xl border bg-card p-4">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0"><h2 className="truncate font-semibold">{item.name}</h2><p className="mt-1 text-xs text-muted-foreground">{item.is_active ? "نشط" : "غير نشط"}</p></div>
                   <Button variant="outline" size="sm" onClick={() => openEdit(item)}><Pencil /> تعديل</Button>
@@ -196,7 +201,8 @@ export function CatalogManager<T extends CatalogEntity>({
                 <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
                   {columns.slice(1).map((column) => <div key={String(column.key)}><dt className="text-xs text-muted-foreground">{column.label}</dt><dd className="mt-1 truncate">{formatValue(item[column.key])}</dd></div>)}
                 </dl>
-              </article>
+              </article >
+              </Link>
             ))}
           </div>
           <div className="hidden overflow-x-auto rounded-xl border bg-card md:block">

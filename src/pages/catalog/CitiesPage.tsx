@@ -24,6 +24,7 @@ export default function CitiesPage() {
         singular="مدينة"
         description="أضف المدن المتاحة للكتالوج وحدّث حالتها."
         resource="/cities"
+        link="/city"
         fields={fields}
         columns={[
           { key: "name", label: "المدينة" },
