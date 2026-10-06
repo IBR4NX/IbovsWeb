@@ -9,7 +9,7 @@ import { SearchFilter } from "./ProductSearch";
 
 interface PriceFiltersProps {
   filters: PriceFiltersValue;
-  cities: FilterOption[];
+  cities: FilterOption[]|null;
   categories: FilterOption[];
   onChange: (changes: Partial<PriceFiltersValue>) => void;
   onClear: () => void;
@@ -37,7 +37,7 @@ export function PriceFilters({
           id="city-filter"
           label="المدينة"
           allLabel="كل المدن"
-          options={cities}
+          options={cities ?? []}
           value={filters.cityName}
           onChange={(cityName) => onChange({ cityName })}
           getOptionValue={(city) => city.name}

@@ -6,6 +6,10 @@ import { AnimatePresence } from "framer-motion";
 const Home = React.lazy(() => import("@/pages/home/HomePage"));
 const About = React.lazy(() => import("@/pages/support/AboutPage"));
 const Prices = React.lazy(() => import("@/pages/prices/PricesPage"));
+const CityPrices = React.lazy(() => import("@/pages/prices/CityPricesPage"));
+const CityProductPrice = React.lazy(() => import("@/pages/prices/CityProductPrice"));
+const CatalogPrices = React.lazy(() => import("@/pages/prices/CatalogPricesPage"));
+const ProductPrices = React.lazy(() => import("@/pages/prices/ProductPricesPage"));
 // const Blog = React.lazy(() => import("@/pages/support/BlogPage"));
 const Careers = React.lazy(() => import("@/pages/support/CareersPage"));
 const Help = React.lazy(() => import("@/pages/support/HelpPage"));
@@ -79,6 +83,15 @@ function AnimatedRoutes() {
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/prices" element={<Prices />} />
+              
+              <Route path="/city" element={<Cities />} />
+              <Route path="/city/:cityName/product/:productName" element={<CityProductPrice />} />
+              <Route path="/city/:cityName" element={<CityPrices />} />
+              <Route path="/category" element={<Categories />} />
+              <Route path="/category/:categoryName" element={<CatalogPrices />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/product/:productName" element={<ProductPrices />} />
+
               <Route path="/catalog" element={<Catalog />} />
               <Route path="/catalog/products" element={<Products />} />
               <Route path="/catalog/categories" element={<Categories />} />
