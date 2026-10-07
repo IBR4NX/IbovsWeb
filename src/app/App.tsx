@@ -10,9 +10,9 @@ const CityPrices = React.lazy(() => import("@/pages/prices/CityPricesPage"));
 const CityProductPrice = React.lazy(() => import("@/pages/prices/CityProductPrice"));
 const CatalogPrices = React.lazy(() => import("@/pages/prices/CatalogPricesPage"));
 const ProductPrices = React.lazy(() => import("@/pages/prices/ProductPricesPage"));
-// const Blog = React.lazy(() => import("@/pages/support/BlogPage"));
-const Careers = React.lazy(() => import("@/pages/support/CareersPage"));
+const Blog = React.lazy(() => import("@/pages/support/BlogPage"));
 const Help = React.lazy(() => import("@/pages/support/HelpPage"));
+const Careers = React.lazy(() => import("@/pages/support/CareersPage"));
 const Faq = React.lazy(() => import("@/pages/support/FaqPage"));
 const NotFound = React.lazy(() => import("@/pages/not-found/NotFoundPage"));
 import Layout from "@/components/layout/SiteLayout";
@@ -28,7 +28,6 @@ const Catalog = React.lazy(() => import("@/pages/catalog/CatalogPage"));
 
 /*
 const Search = React.lazy(() => import("@/pages/Search"));
-const Info = React.lazy(() => import("@/pages/Info"));
 const Profile = React.lazy(() => import("@/pages/Profile"));
 */
 import { Sys } from "@/features/theme/themeSlice";
@@ -100,9 +99,10 @@ function AnimatedRoutes() {
               <Route path="/about" element={<About />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/help" element={<Help />} />
+              <Route path="/support" element={<Help />} />
               <Route path="/faq" element={<Faq />} />
+              <Route path="/blog" element={ <Blog /> } />
               {/* 
-              <Route path="/search" element={ <Search /> } />
               <Route path="/info" element={ <Info /> } />
               <Route path="/profile" element={ <Profile /> } />
               <Route path="*" element={<NotFound />} />
