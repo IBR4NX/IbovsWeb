@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://markets-ye.vercel.app/sitemap.xml
 Sitemap: https://markets-ye.vercel.app/sitemap2.xml 
+Sitemap: https://markets-ye.vercel.app/marketsmap.xml 
