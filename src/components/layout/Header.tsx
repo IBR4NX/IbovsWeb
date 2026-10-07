@@ -76,7 +76,7 @@ function Header() {
             variant="ghost"
             size="icon"
             disabled={disabled}
-            className="md:hidden"
+            className="md:hidden size-10 *:size-8! "
             onClick={handleMenuToggle}
             aria-label={mobileMenuOpen ? "إغلاق القائمة" : "فتح القائمة"}
             aria-expanded={mobileMenuOpen}
@@ -120,14 +120,14 @@ function Header() {
         <div
            onClick={() =>  handleMenuToggle}
           className={` fixed top-0 pt-12 -z-10 bg-alpha-10 transition-opacity   w-full h-screen  
-          ${close && " opacity-0 max-w-0 "} `}
+          ${close && " opacity-0 max-w-0 overflow-hidden "} `}
         >
           <div onClick={(e) => e.stopPropagation()}
             className={`sm:max-w-xs h-full shadow-2xl transition-all ease-out  backdrop-blur-sm bg-background/50 duration-300 ${i18n.language === "ar" ? "translate-x-full" : "-translate-x-full"} ${mobileMenuOpen && "translate-x-0!"}
                  dark:border-white/10`}>
             {/* Mobile menu items */}
             <div   onClick={handleMenuToggle}
-             className=" h-full divide-y divide-black/20 dark:divide-white/20  *:py-4p gap-4  flex flex-col p-6   overflow-hidden ">
+             className={` h-full divide-y divide-black/20 dark:divide-white/20  *:py-4p gap-4  flex flex-col p-6   overflow-hidden `} >
 
               <div className="  pb-4 scroll-yk-auto overflokw-y-auto overflow-x-hidden ">
                 <List lang={i18n.language} />

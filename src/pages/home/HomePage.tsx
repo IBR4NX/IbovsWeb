@@ -62,7 +62,7 @@ export default function HomePage() {
         <section className="relative isolate overflow-hidden">
           <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-linear-to-b from-primary/10 via-primary/5 to-transparent sm:h-96" />
 
-          <div className="mx-auto w-full max-w-7xl px-4 pt-28 pb-12 sm:px-6 sm:pt-36 sm:pb-16 lg:px-8 lg:pt-44 lg:pb-24">
+          <div className="mx-auto w-full max-w-7xl px-4 pt-8 pb-12 sm:px-6 sm:pt-16 sm:pb-16 lg:px-8 lg:pt-44 lg:pb-24">
             <div className="max-w-3xl">
               <Badge
                 variant="secondary"
@@ -98,7 +98,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4">
+            <div className=" hidden mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4">
               {stats.map((stat) => (
                 <Card
                   key={stat.label}
@@ -118,7 +118,7 @@ export default function HomePage() {
 
         <section
           id="how-it-works"
-          className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
+          className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-1 pb-16 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
         >
           <div className="max-w-2xl">
             <span className="text-sm font-semibold text-primary">
