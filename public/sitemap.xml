@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ibovs.netlify.app/</loc>
+    <loc>https://markets-ye.vercel.app/</loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/about</loc>
+    <loc>https://markets-ye.vercel.app/prices</loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/contact</loc>
+    <loc>https://markets-ye.vercel.app/about</loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/privacy-policy</loc>
+    <loc>https://markets-ye.vercel.app/dashboard</loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/support</loc>
+    <loc>https://markets-ye.vercel.app/privacy-policy</loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/blog </loc>
+    <loc>https://markets-ye.vercel.app/help</loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/careers</loc>
+    <loc>https://markets-ye.vercel.app/blog </loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/faq</loc>
+    <loc>https://markets-ye.vercel.app/careers</loc>
   </url>
   <url>
-    <loc>https://ibovs.netlify.app/services</loc>
+    <loc>https://markets-ye.vercel.app/faq</loc>
   </url>
 </urlset>

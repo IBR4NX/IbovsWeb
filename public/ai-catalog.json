@@ -1,0 +1,55 @@
+{
+  "name": "Markets YE",
+  "description": "منصة يمنية لعرض ومتابعة أسعار المنتجات حسب المدينة والتصنيف.",
+  "url": "https://markets-ye.vercel.app",
+  "language": "ar",
+  "type": "price-information-platform",
+  "country": "Yemen",
+
+  "pages": [
+    {
+      "name": "الرئيسية",
+      "url": "/",
+      "description": "الصفحة الرئيسية لمنصة Markets YE."
+    },
+    {
+      "name": "الأسعار",
+      "url": "/prices",
+      "description": "عرض أسعار المنتجات الحالية حسب المنتج والمدينة والتصنيف."
+    },
+    {
+      "name": "من نحن",
+      "url": "/about",
+      "description": "معلومات عن منصة Markets YE وهدفها."
+    },
+    {
+      "name": "تواصل معنا",
+      "url": "/contact",
+      "description": "صفحة التواصل مع فريق المنصة."
+    }
+  ],
+
+  "features": [
+    "عرض أسعار المنتجات",
+    "البحث عن المنتجات",
+    "التصفية حسب المدينة",
+    "التصفية حسب التصنيف",
+    "إرسال أسعار جديدة",
+    "مراجعة الأسعار المرسلة",
+    "تاريخ تغير الأسعار"
+  ],
+
+  "data": {
+    "products": "المنتجات المتوفرة في الأسواق اليمنية",
+    "cities": "المدن اليمنية",
+    "categories": "تصنيفات المنتجات",
+    "current_prices": "الأسعار المعتمدة الحالية",
+    "price_history": "السجل التاريخي لتغير الأسعار"
+  },
+
+  "price_verification": {
+    "user_submissions": true,
+    "employee_review": true,
+    "approval_required": true
+  }
+}
