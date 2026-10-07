@@ -1,5 +1,23 @@
 [[redirects]]
-  from = "/*"
-  to = "https://markets-ye.vercel.app/:splat"
-  status = 301
+  from = "/sitemap.xml"
+  to = "https://server-market-yemen.vercel.app/api/sitemap/sitemap.xml?sender=ibovs.netlify.app"
+  status = 200
   force = true
+
+[[redirects]]
+  from = "/sitemap2.xml"
+  to = "https://server-market-yemen.vercel.app/api/sitemap/sitemap2.xml?sender=ibovs.netlify.app"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sitemap/*"
+  to = "https://server-market-yemen.vercel.app/api/sitemap/:splat?sender=ibovs.netlify.app"
+  status = 200
+  force = true
+
+# React SPA — يجب أن يكون في النهاية
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
