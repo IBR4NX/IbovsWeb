@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <sitemap>
+    <loc>https://markets-ye.vercel.app/sitemap/marketsmap.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://markets-ye.vercel.app/sitemap/sitemap-products.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://markets-ye.vercel.app/sitemap/sitemap-cities.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://markets-ye.vercel.app/sitemap/sitemap-categories.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://markets-ye.vercel.app/sitemap-prices.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://markets-ye.vercel.app/sitemap-blog.xml</loc>
+  </sitemap>
+
+</sitemapindex>

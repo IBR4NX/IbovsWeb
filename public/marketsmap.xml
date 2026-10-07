@@ -1,30 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://markets-ye.vercel.app/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://markets-ye.vercel.app/prices</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://markets-ye.vercel.app/about</loc>
+    <loc>https://markets-ye.vercel.app/blog</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://markets-ye.vercel.app/dashboard</loc>
-  </url>
-  <url>
-    <loc>https://markets-ye.vercel.app/privacy-policy</loc>
-  </url>
-  <url>
-    <loc>https://markets-ye.vercel.app/help</loc>
-  </url>
-  <url>
-    <loc>https://markets-ye.vercel.app/blog </loc>
-  </url>
-  <url>
-    <loc>https://markets-ye.vercel.app/careers</loc>
-  </url>
+
   <url>
     <loc>https://markets-ye.vercel.app/faq</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://markets-ye.vercel.app/about</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://markets-ye.vercel.app/help</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://markets-ye.vercel.app/dashboard</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://markets-ye.vercel.app/privacy-policy</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://markets-ye.vercel.app/careers</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
