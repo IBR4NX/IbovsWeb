@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-[1.2fr_1fr_1fr] lg:gap-12">
           <div dir="rtl">
             <LinkFooter/>
-            <div className="mt-4 flex justify-between  r gap-2">
+            <div className="mt-8 flex justify-between   gap-2">
               <Link to="/prices" className="text-3xl font-bold">
                 السوق اليمني
               </Link>
@@ -33,8 +33,8 @@ export default function Footer() {
           </div>
           <div className="relative  grid grid-cols-1 gap-4 sm:grid-cols-2 " >
           <div className="  w-full">
-            <h2 className="text-sm font-semibold">{t("quickLinks")}</h2>
-            <div className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground">
+            <h2 className="text-2xl font-semibold">{t("quickLinks")}</h2>
+            <div className="mt-4 flex flex-col gap-3 text-lg text-muted-foreground">
               <Link
                 to="/prices"
                 className="w-fit hover:text-foreground hover:underline"
