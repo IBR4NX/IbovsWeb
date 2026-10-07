@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import ThemeBtn from "@/features/theme/ThemeToggle";
 
 import ChangeLang from "./LanguageSwitcher";
-import LinkFooter from "./linkFooter";
+import LinkFooter from "@/components/layout/linkFooter";
 
 export default function Footer() {
   const { t } = useTranslation("footer");

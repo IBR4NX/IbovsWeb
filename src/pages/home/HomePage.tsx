@@ -98,7 +98,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className=" hidden mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4">
+            <div className=" hidden mt-10 grتid grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4">
               {stats.map((stat) => (
                 <Card
                   key={stat.label}
