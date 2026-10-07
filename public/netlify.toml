@@ -1,4 +1,23 @@
 [[redirects]]
+  from = "/sitemap.xml"
+  to = "https://server-market-yemen.vercel.app/api/sitemap.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sitemap2.xml"
+  to = "https://server-market-yemen.vercel.app/api/sitemap2.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sitemap/*"
+  to = "https://server-market-yemen.vercel.app/api/sitemap/:splat"
+  status = 200
+  force = true
+
+# React SPA — يجب أن يكون في النهاية
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
