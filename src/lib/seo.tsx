@@ -31,7 +31,8 @@ export function Seo({
   title,
   type = "website",
 }: SeoProps) {
-  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+  const fullTitle = `${title} `;
+  // const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const canonical = absoluteUrl(canonicalPath ?? window.location.pathname);
   const imageUrl = absoluteUrl(image);
 
