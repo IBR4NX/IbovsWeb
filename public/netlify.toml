@@ -6,13 +6,13 @@
 
 [[redirects]]
   from = "/sitemap2.xml"
-  to = "https://server-market-yemen.vercel.app/api//sitemap2.xml"
+  to = "https://server-market-yemen.vercel.app/api/sitemap/sitemap2.xml?sender=ibovs.netlify.app"
   status = 200
   force = true
 
 [[redirects]]
   from = "/sitemap/*"
-  to = "https://server-market-yemen.vercel.app/api/sitemap/:splat"
+  to = "https://server-market-yemen.vercel.app/api/sitemap/:splat?sender=ibovs.netlify.app"
   status = 200
   force = true
 
