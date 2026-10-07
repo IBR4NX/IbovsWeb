@@ -20,12 +20,12 @@ export default function ProductsPage() {
   const fields: CatalogField<Product>[] = [
     { key: "name", label: "اسم المنتج", type: "text", required: true },
     {
-      key: "category_id",
+      key: "category_name",
       label: "الفئة",
       type: "select",
       required: true,
       options: categories.map((category) => ({
-        value: category.id,
+        value: category.name,
         label: category.name,
       })),
     },

@@ -9,6 +9,10 @@
       "destination": "https://server-market-yemen.vercel.app/api/sitemap2.xml"
     },
     {
+      "source": "/sitemap/:path*",
+      "destination": "https://server-market-yemen.vercel.app/api/sitemap/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

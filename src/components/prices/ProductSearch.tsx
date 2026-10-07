@@ -1,22 +1,31 @@
 import { Search } from "lucide-react";
-
+import { cn } from "cn"
+import React from "react";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
 
-interface SearchFilterProps {
-  value: string;
-  onChange: (value: string) => void;
-}
+// interface SearcFilterProps {
+//   value: string;
+//   onChange: (value: string) => void;
+  
+// } 
+type SearchFilterProps =
+  & {
+      value: string;
+      placeholder?:string;
+      onChange: (value: string) => void;
+    }
+  & Omit<React.ComponentProps<"div">, "onChange">;
 
-export function SearchFilter({ value, onChange }: SearchFilterProps) {
+export function SearchFilter({ value,placeholder, onChange, className  }: SearchFilterProps) {
   return (
-    <div className=" col-span-4">
-      <label htmlFor="product-search" className="mb-1.5 block text-sm font-medium">
+    <div className={cn(" col-span-4 ",className)} >
+      {/* <label htmlFor="product-search" className="mb-1.5 block text-sm font-medium">
         البحث
-      </label>
+      </label> */}
       <InputGroup className="h-10">
         <InputGroupAddon align="inline-start">
           <Search />
@@ -26,7 +35,7 @@ export function SearchFilter({ value, onChange }: SearchFilterProps) {
           type="search"
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          placeholder="ابحث عن منتج..."
+          placeholder={placeholder??"ابحث عن منتج..."}
         />
       </InputGroup>
     </div>
