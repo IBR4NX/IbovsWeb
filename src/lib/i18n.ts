@@ -8,14 +8,14 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
+    fallbackLng: "ar",
     defaultNS: "common",
     ns: ["common"],
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
     detection: {
-      order: ["localStorage", "cookie", "htmlTag", "navigator", "path", "subdomain"],
+      order: ["htmlTag","localStorage", "cookie", "navigator", "path", "subdomain"],
       caches: ["localStorage", "cookie"],
     },
     interpolation: {
