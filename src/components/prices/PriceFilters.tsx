@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { FilterOption, PriceFiltersValue } from "@/features/catalog/types";
 
-import { FilterSelect } from "@/components/filters/FilterSelect";
+import { FilterSelect } from "@/components/prices/FilterSelect";
 import { SearchFilter } from "./ProductSearch";
 
 interface PriceFiltersProps {

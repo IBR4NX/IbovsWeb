@@ -49,7 +49,7 @@ export default function HomePage() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Markets YE",
+          name: "أسعار المنتجات في اليمن",
           url: absoluteUrl("/"),
           potentialAction: {
             "@type": "SearchAction",
@@ -121,9 +121,9 @@ export default function HomePage() {
           className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
         >
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-primary">
+            <span className="text-sm font-semibold text-primary">
               طريقة متابعة أسعار المنتجات
-            </p>
+            </span>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
               من اسم المنتج إلى مقارنة الأسعار بين المدن اليمنية
             </h2>
