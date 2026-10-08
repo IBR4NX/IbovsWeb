@@ -25,6 +25,7 @@ const Categories = React.lazy(() => import("@/pages/catalog/CategoriesPage"));
 const Cities = React.lazy(() => import("@/pages/catalog/CitiesPage"));
 const Dashboard = React.lazy(() => import("@/pages/dashboard/DashboardPage"));
 const Catalog = React.lazy(() => import("@/pages/catalog/CatalogPage"));
+const SubmissionsPage = React.lazy(() => import("@/pages/admin/SubmissionsPage"));
 
 /*
 const Search = React.lazy(() => import("@/pages/Search"));
@@ -84,6 +85,7 @@ function AnimatedRoutes() {
               <Route path="/prices" element={<Prices />} />
               <Route path='/services' element={<Prices />}/>
               <Route path="/cities/:cityName" element={<CityPrices />} />
+              <Route path="/city" element={<CityPrices />} />
               <Route path="/categories/:categoryName" element={<CatalogPrices />} />
               
               <Route path="/city" element={<Cities />} />
@@ -99,6 +101,8 @@ function AnimatedRoutes() {
               <Route path="/catalog/categories" element={<Categories />} />
               <Route path="/catalog/cities" element={<Cities />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/sub" element={<SubmissionsPage />} />
+
               <Route path="/about" element={<About />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/help" element={<Help />} />
