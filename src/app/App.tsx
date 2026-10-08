@@ -82,6 +82,7 @@ function AnimatedRoutes() {
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/prices" element={<Prices />} />
+              <Route path='/services' element={<Prices />}/>
               <Route path="/cities/:cityName" element={<CityPrices />} />
               <Route path="/categories/:categoryName" element={<CatalogPrices />} />
               
@@ -107,12 +108,11 @@ function AnimatedRoutes() {
               {/* 
               <Route path="/info" element={ <Info /> } />
               <Route path="/profile" element={ <Profile /> } />
-              <Route path="*" element={<NotFound />} />
               */}
-            <Route path='/services' element={<Contact/>}/>
             <Route path='/contact' element={<Contact/>}/>
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Route>
+          <Route path="/:ft*" element={<NotFound />} />
          <Route path="notfound" element={<NotFound />} />
           </Routes>
         </Suspense>

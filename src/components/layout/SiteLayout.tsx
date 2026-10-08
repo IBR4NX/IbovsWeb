@@ -5,6 +5,7 @@ import { menu } from "@/features/navigation/mobileMenuSlice";
 import { Animationpage } from "@/components/feedback/PageAnimation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import TestPage from "@/pages/TestPage";
 function Layout() {
     const dispatch = useDispatch();
 
@@ -21,6 +22,7 @@ function Layout() {
                 </Animationpage>
             </div>
             <Footer />
+            <TestPage/>
         </div>
     )
 }

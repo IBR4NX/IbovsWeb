@@ -5,12 +5,12 @@ export default function Notfound() {
     return <div className="fllex flex-cokl items-center bg-background justify-center pt-10 min-w-screen min-h-screen">
         <Seo
             canonicalPath="/notfound"
-            title="الصفحة غير موجودة"
+            title="السوق اليمني"
             description="الصفحة المطلوبة غير موجودة. يمكنك الرجوع إلى صفحة أسعار المنتجات في اليمن أو الصفحة الرئيسية."
             noindex
         />
-        <div onClick={()=>location.href="/"} className="text-center">
-            <h1 className="text-4xl font-bold mb-4">الصفحة غير موجودة</h1>
+        <div onClick={()=>location.href="/"} className=" mt-20 text-center">
+            <h1 className="text-4xl font-bold mb-4">الصفحة غير موجودةالسوق اليمني </h1>
             <p className="text-xl mb-6">الرابط الذي فتحته غير متاح حالياً.</p>
             <p className="mb-6">يمكنك الرجوع للصفحة الرئيسية أو فتح صفحة الأسعار للبحث عن منتج أو مدينة.</p>
             <div className="mb-6">
