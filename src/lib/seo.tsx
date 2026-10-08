@@ -19,6 +19,7 @@ export function getSiteUrl() {
 
 export function absoluteUrl(path = "/") {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  // console.log(path,normalizedPath)
   return `${getSiteUrl()}${normalizedPath}`;
 }
 

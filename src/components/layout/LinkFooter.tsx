@@ -29,11 +29,10 @@ const cities = [
 
 const categories = [
   { name: "الأرز", slug: "الأرز" },
-  { name: "القمح", slug: "القمح" },
-  { name: "الدقيق", slug: "الدقيق" },
-  { name: "السكر", slug: "السكر" },
-  { name: "الزيوت", slug: "الزيوت" },
-  { name: "المشتقات النفطية", slug: "المشتقات النفطية" },
+  { name: "القمح", slug: "قمح" },
+  { name: "الدقيق", slug: "دقيق" },
+  { name: "السكر", slug: "سكر" },
+  { name: "الزيوت", slug: "زيوت" },
 ];
 export default function LinkFooter() {
 
@@ -73,7 +72,7 @@ export default function LinkFooter() {
               {categories.map((category) => (
                 <Link
                   key={category.slug}
-                  to={`/categories/${category.slug}`}
+                  to={`/product/${category.slug}`}
                   className="w-fit underline-offset-2 underline  hover:text-blue-700"
                 >
                   أسعار {category.name}

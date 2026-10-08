@@ -251,7 +251,7 @@ export default function PricesScopePage({
           url: absoluteUrl(new URL(canonicalUrlWithExtra).pathname),
           isPartOf: {
             "@type": "WebSite",
-            name: "Markets YE",
+            name: "Markets EYMEN ",
             url: absoluteUrl("/"),
           },
         }}
