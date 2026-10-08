@@ -22,7 +22,7 @@ function Layout() {
         </Animationpage>
       </div>
       <Footer />
-      {/* <Toaster position="top-center" richColors /> */}
+      <Toaster position="top-center" richColors />
     </div>
   );
 }
