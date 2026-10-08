@@ -1,24 +1,40 @@
 import { Link } from "react-router-dom";
 
 
+// const cities = [
+//   { name: "صنعاء", slug: "sanaa" },
+//   { name: "عدن", slug: "aden" },
+//   { name: "تعز", slug: "taiz" },
+//   { name: "إب", slug: "ibb" },
+//   { name: "الحديدة", slug: "hodeidah" },
+//   { name: "حضرموت", slug: "hadramout" },
+// ];
+
+// const categories = [
+//   { name: "الأرز", slug: "rice" },
+//   { name: "القمح", slug: "wheat" },
+//   { name: "الدقيق", slug: "flour" },
+//   { name: "السكر", slug: "sugar" },
+//   { name: "الزيوت", slug: "oil" },
+//   { name: "المشتقات النفطية", slug: "fuel" },
+// ];
 const cities = [
-  { name: "صنعاء", slug: "sanaa" },
-  { name: "عدن", slug: "aden" },
-  { name: "تعز", slug: "taiz" },
-  { name: "إب", slug: "ibb" },
-  { name: "الحديدة", slug: "hodeidah" },
-  { name: "حضرموت", slug: "hadramout" },
+  { name: "صنعاء", slug: "صنعاء" },
+  { name: "عدن", slug: "عدن" },
+  { name: "تعز", slug: "تعز" },
+  { name: "إب", slug: "إب" },
+  { name: "الحديدة", slug: "الحديدة" },
+  { name: "حضرموت", slug: "حضرموت" },
 ];
 
 const categories = [
-  { name: "الأرز", slug: "rice" },
-  { name: "القمح", slug: "wheat" },
-  { name: "الدقيق", slug: "flour" },
-  { name: "السكر", slug: "sugar" },
-  { name: "الزيوت", slug: "oil" },
-  { name: "المشتقات النفطية", slug: "fuel" },
+  { name: "الأرز", slug: "الأرز" },
+  { name: "القمح", slug: "القمح" },
+  { name: "الدقيق", slug: "الدقيق" },
+  { name: "السكر", slug: "السكر" },
+  { name: "الزيوت", slug: "الزيوت" },
+  { name: "المشتقات النفطية", slug: "المشتقات النفطية" },
 ];
-
 export default function LinkFooter() {
 
   return (
@@ -57,7 +73,7 @@ export default function LinkFooter() {
               {categories.map((category) => (
                 <Link
                   key={category.slug}
-                  to={`/prices/${category.slug}`}
+                  to={`/categories/${category.slug}`}
                   className="w-fit underline-offset-2 underline  hover:text-blue-700"
                 >
                   أسعار {category.name}
