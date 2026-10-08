@@ -16,11 +16,10 @@ function Layout() {
   return (
     <div className="flex min-h-screen min-w-0 flex-col overflow-x-clip">
       <Header />
-      <div className="flex-1 pt-16">
+      {/* Main inset her */}
         <Animationpage>
           <Outlet />
         </Animationpage>
-      </div>
       <Footer />
       <Toaster position="top-center" richColors />
     </div>

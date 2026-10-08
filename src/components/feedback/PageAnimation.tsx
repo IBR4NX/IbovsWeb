@@ -21,15 +21,15 @@ function AnimationHeader({ children }: { children: React.ReactNode }) {
 function Animationpage({ children }: { children: React.ReactNode }) {
 
     return (
-        <motion.main
-            initial={{ opacity: 0, y: 0 }}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 0 }}
             transition={{ duration: 0.25 }}
-            className=" min-h-screen "
+            className=" min-h-screen pt-16 "
         >
             {children}
-        </motion.main>
+        </motion.div>
     );
 }
 

@@ -18,6 +18,7 @@ const NotFound = React.lazy(() => import("@/pages/not-found/NotFoundPage"));
 import Layout from "@/components/layout/SiteLayout";
 import Spinner from "@/components/feedback/Spinner";
 import PrivacyPolicy from "@/pages/support/PrivacyPolicyPage";
+import Register from "@/pages/auth/RegisterPage";
 import Contact from "@/pages/support/ContactPage";
 const Login = React.lazy(() => import("@/pages/auth/LoginPage"));
 const Products = React.lazy(() => import("@/pages/catalog/ProductsPage"));
@@ -32,7 +33,6 @@ const Search = React.lazy(() => import("@/pages/Search"));
 const Profile = React.lazy(() => import("@/pages/Profile"));
 */
 import { Sys } from "@/features/theme/themeSlice";
-import Register from "@/pages/auth/RegisterPage";
 function App() {
    Sys()
   const [loading, setLoading] = useState(true);
@@ -56,13 +56,11 @@ function App() {
      <div id='top' className=""></div>
 
       <div className="isolate">
-        <div className="">
           <RecoilRoot>
             <BrowserRouter>
               <AnimatedRoutes />
             </BrowserRouter>
           </RecoilRoot>
-        </div>
       </div>
     </>
   );
