@@ -42,22 +42,29 @@ const stats = [
 export default function HomePage() {
   return (
     <>
-      <Seo
-        canonicalPath="/"
-        title="أسعار اليوم في اليمن للمنتجات والسلع"
-        description="تابع أسعار المنتجات والسلع في اليمن حسب المدينة والفئة، وابحث عن سعر المنتج اليوم في صنعاء أو تعز أو عدن من مكان واحد."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "أسعار المنتجات في اليمن",
-          url: absoluteUrl("/"),
-          potentialAction: {
-            "@type": "SearchAction",
-            target: `${absoluteUrl("/prices")}?search={search_term_string}`,
-            "query-input": "required name=search_term_string",
-          },
-        }}
-      />
+<Seo
+  canonicalPath="/"
+  title="أسعار اليمن اليوم للمنتجات والسلع"
+  description="تعرف على أسعار المنتجات والسلع في اليمن اليوم، وقارن الأسعار حسب المدينة والفئة، وابحث عن سعر أي منتج في صنعاء أو تعز أو عدن من مكان واحد."
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "أسعار اليمن",
+    alternateName: [
+      "أسعار اليمن اليوم",
+      "أسعار المنتجات في اليمن",
+      "أسعار السلع في اليمن",
+      "دليل أسعار اليمن",
+      "أسعار السوق اليمني"
+    ],
+    url: absoluteUrl("/"),
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${absoluteUrl("/prices")}?search={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  }}
+/>
       <main dir="rtl" className="overflow-x-clip bg-background text-foreground">
         <section className="relative isolate overflow-hidden">
           <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-linear-to-b from-primary/10 via-primary/5 to-transparent sm:h-96" />

@@ -81,13 +81,13 @@ function AnimatedRoutes() {
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/prices" element={<Prices />} />
-              <Route path='/services' element={<Prices />}/>
-              <Route path="/cities/:cityName" element={<CityPrices />} />
-              <Route path="/city" element={<CityPrices />} />
+              <Route path='/services'  element={<Navigate to="/prices" />}/>
+              <Route path="/cities/:cityName" element={<Navigate to="/city/:cityName" />} />
               <Route path="/categories/:categoryName" element={<CatalogPrices />} />
-              
+
               <Route path="/city" element={<Cities />} />
               <Route path="/city/:cityName" element={<CityPrices />} />
+              
               <Route path="/city/:cityName/product/:productName" element={<CityProductPrice />} />
               <Route path="/category" element={<Categories />} />
               <Route path="/category/:categoryName" element={<CatalogPrices />} />
