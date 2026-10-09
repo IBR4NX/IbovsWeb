@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_NAME = "Markets YE";
+const SITE_NAME = "Markets Yemen";
 const DEFAULT_SITE_URL = "https://markets-ye.vercel.app";
 
 interface SeoProps {
@@ -8,9 +8,9 @@ interface SeoProps {
   description: string;
   image?: string;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
-  noindex?: boolean;
+  noindex?: boolean; 
   title: string;
-  type?: "website" | "article";
+  type?: "website" | "article"|"WebPage" | "CollectionPage";
 }
 
 export function getSiteUrl() {
@@ -25,15 +25,15 @@ export function absoluteUrl(path = "/") {
 
 export function Seo({
   canonicalPath,
-  description,
+  description,  
   image = "/favicons/web-app-manifest-512x512.png",
   jsonLd,
   noindex = false,
   title,
-  type = "website",
+  type = "WebPage",
 }: SeoProps) {
-  const fullTitle = `${title} `;
-  // const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+  // const fullTitle = `${title} `;
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} - ${SITE_NAME}`;
   const canonical = absoluteUrl(canonicalPath ?? window.location.pathname);
   const imageUrl = absoluteUrl(image);
 

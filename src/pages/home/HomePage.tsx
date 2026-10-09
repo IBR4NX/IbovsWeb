@@ -87,6 +87,7 @@ export default function HomePage() {
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
                 <Button
+                  nativeButton={false}
                   render={<Link to="/prices" />}
                   size="lg"
                   className="h-11 w-full sm:w-auto"
@@ -95,6 +96,7 @@ export default function HomePage() {
                   <ArrowLeft />
                 </Button>
                 <Button
+                                  nativeButton={false}
                   render={<a href="#how-it-works" />}
                   variant="outline"
                   size="lg"
@@ -171,6 +173,7 @@ export default function HomePage() {
                 </p>
               </div>
               <Button
+                                nativeButton={false}
                 render={<Link to="/prices" />}
                 size="lg"
                 variant="secondary"
