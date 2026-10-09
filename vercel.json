@@ -17,11 +17,11 @@
       "destination": "https://server-market-yemen.vercel.app/api/sitemap/:path*"
     },
     {
-      "source": "ai-catalog.json",
+      "source": "/ai-catalog.json",
       "destination": "/ai-catalog.json"
     },
     {
-      "source": "llms.txt",
+      "source": "/llms.txt",
       "destination": "/llms.txt"
     },
     {
