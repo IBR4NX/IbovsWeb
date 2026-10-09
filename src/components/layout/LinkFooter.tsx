@@ -46,7 +46,7 @@ export default function LinkFooter() {
               {cities.map((city) => (
                 <Link
                   key={city.slug}
-                  to={`/cities/${city.slug}`}
+                  to={`/cities?city=${city.slug}`}
                   className="w-1/4 underline min-w-fit underline-offset-2  hover:text-blue-700"
                 >
                   أسعار {city.name}
