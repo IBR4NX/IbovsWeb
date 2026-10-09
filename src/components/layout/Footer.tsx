@@ -42,6 +42,12 @@ export default function Footer() {
                   ألاسعار
                 </Link>
                 <Link
+                  to="/add"
+                  className="w-fit hover:text-foreground hover:underline"
+                >
+                  تعديل سعر
+                </Link>
+                <Link
                   to="/privacy-policy"
                   className="w-fit hover:text-foreground hover:underline"
                 >

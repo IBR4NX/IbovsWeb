@@ -8,13 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { SearchableSelect } from "@/features/submissions/SearchAbleSelect";
 import { Textarea } from "@/components/ui/textarea";
 import { submissionsApi } from "@/features/submissions/api";
 import { useCatalogOptions } from "@/hooks/useCatalogOptions";
@@ -58,6 +52,9 @@ export default function AddPricePage() {
     }
   };
 
+  const productOptions = products.map((p) => ({ value: p.name, label: p.name }));
+  const cityOptions = cities.map((c) => ({ value: c.name, label: c.name }));
+
   return (
     <>
       <Seo
@@ -98,42 +95,28 @@ export default function AddPricePage() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="product_name">المنتج</Label>
-                  <Select
+                  <SearchableSelect
+                    id="product_name"
                     value={form.product_name}
-                    onValueChange={(v) => update("product_name", v ?? "")}
+                    onValueChange={(v) => update("product_name", v)}
+                    options={productOptions}
+                    placeholder="اختر المنتج"
+                    searchPlaceholder="ابحث عن منتج..."
                     disabled={catalogLoading || submitting}
-                  >
-                    <SelectTrigger id="product_name">
-                      <SelectValue placeholder="اختر المنتج" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {products.map((p) => (
-                        <SelectItem key={p.id} value={p.name}>
-                          {p.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="city_name">المدينة</Label>
-                  <Select
+                  <SearchableSelect
+                    id="city_name"
                     value={form.city_name}
-                    onValueChange={(v) => update("city_name", v ?? "")}
+                    onValueChange={(v) => update("city_name", v)}
+                    options={cityOptions}
+                    placeholder="اختر المدينة"
+                    searchPlaceholder="ابحث عن مدينة..."
                     disabled={catalogLoading || submitting}
-                  >
-                    <SelectTrigger id="city_name">
-                      <SelectValue placeholder="اختر المدينة" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {cities.map((c) => (
-                        <SelectItem key={c.id} value={c.name}>
-                          {c.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  />
                 </div>
 
                 <div className="space-y-2">

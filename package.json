@@ -20,6 +20,7 @@
     "@vercel/speed-insights": "^2.0.0",
     "axios": "^1.13.2",
     "class-variance-authority": "^0.7.1",
+    "cmdk": "^1.1.1",
     "cn": "^0.4.0",
     "framer-motion": "^12.25.0",
     "i18next": "^23.16.8",
