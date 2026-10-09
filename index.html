@@ -44,16 +44,43 @@
     <!-- <link rel="manifest" href="/manifest.json" /> -->
     <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-59NDMV64");
+
+  (function () {
+    var loaded = false;
+
+    function loadGTM() {
+      if (loaded) return;
+      loaded = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js",
+      });
+
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-59NDMV64";
+
+      document.head.appendChild(script);
+    }
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(loadGTM, { timeout: 5000 });
+    } else {
+      window.addEventListener("load", function () {
+        setTimeout(loadGTM, 1000);
+      }, { once: true });
+    }
+
+    ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (event) {
+      window.addEventListener(event, loadGTM, {
+        once: true,
+        passive: true,
+      });
+    });
+  })();
+
     </script>
     <!-- Google tag (gtag.js) -->
     <!-- <script
