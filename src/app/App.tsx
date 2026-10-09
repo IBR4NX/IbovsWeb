@@ -7,6 +7,7 @@ const Home = React.lazy(() => import("@/pages/home/HomePage"));
 const About = React.lazy(() => import("@/pages/support/AboutPage"));
 const Prices = React.lazy(() => import("@/pages/prices/PricesPage"));
 const CityPrices = React.lazy(() => import("@/pages/prices/CityPricesPage"));
+const CityPage = React.lazy(() => import("@/pages/prices/CityPage"));
 const CityProductPrice = React.lazy(() => import("@/pages/prices/CityProductPrice"));
 const CatalogPrices = React.lazy(() => import("@/pages/prices/CatalogPricesPage"));
 const ProductPrices = React.lazy(() => import("@/pages/prices/ProductPricesPage"));
@@ -28,7 +29,6 @@ const Dashboard = React.lazy(() => import("@/pages/dashboard/DashboardPage"));
 const Catalog = React.lazy(() => import("@/pages/catalog/CatalogPage"));
 const SubmissionsPage = React.lazy(() => import("@/pages/admin/SubmissionsPage"));
 const AddSubmissionPage = React.lazy(() => import("@/pages/admin/AddSubmissionPage"));
-
 /*
 const Search = React.lazy(() => import("@/pages/Search"));
 const Profile = React.lazy(() => import("@/pages/Profile"));
@@ -82,8 +82,8 @@ function AnimatedRoutes() {
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/prices" element={<Prices />} />
-              <Route path='/services'  element={<Navigate to="/prices" />}/>
-              <Route path="/cities/:cityName" element={<Cities  />} />
+              <Route path='/services'  element={<Prices />}/>
+              <Route path="/cities/" element={<CityPage  />} />
               <Route path="/categories/:categoryName" element={<CatalogPrices />} />
 
               <Route path="/city" element={<Cities />} />

@@ -14,7 +14,7 @@ export default function CitiesPage() {
   return (
     <>
       <Seo
-        canonicalPath="/catalog/cities"
+        canonicalPath="/city"
         title="إدارة المدن"
         description="صفحة داخلية لإدارة المدن التي تظهر في أسعار Markets YE."
         noindex
@@ -23,7 +23,7 @@ export default function CitiesPage() {
         title="المدن"
         singular="مدينة"
         description="أضف المدن المتاحة للكتالوج وحدّث حالتها."
-        resource="/cities"
+        resource="/city"
         link="/city"
         fields={fields}
         columns={[
