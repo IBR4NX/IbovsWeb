@@ -42,46 +42,7 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Lalezar&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> -->
 
     <!-- <link rel="manifest" href="/manifest.json" /> -->
-    <!-- Google Tag Manager -->
-    <script>
 
-  (function () {
-    var loaded = false;
-
-    function loadGTM() {
-      if (loaded) return;
-      loaded = true;
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        "gtm.start": new Date().getTime(),
-        event: "gtm.js",
-      });
-
-      var script = document.createElement("script");
-      script.async = true;
-      script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-59NDMV64";
-
-      document.head.appendChild(script);
-    }
-
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(loadGTM, { timeout: 5000 });
-    } else {
-      window.addEventListener("load", function () {
-        setTimeout(loadGTM, 1000);
-      }, { once: true });
-    }
-
-    ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (event) {
-      window.addEventListener(event, loadGTM, {
-        once: true,
-        passive: true,
-      });
-    });
-  })();
-
-    </script>
     <!-- Google tag (gtag.js) -->
     <!-- <script
       async
@@ -103,6 +64,19 @@
       title="Markets YE - آخر تحديثات الأسعار في اليمن"
       href="https://markets-ye.vercel.app/sitemap/rss.xml"
     />
+        <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-59NDMV64");
+    </script>
   </head>
 
 
@@ -113,14 +87,14 @@
     <script type="module" src="/src/main.tsx"></script>
     <!-- <h1 class="absolute -top-52">أسعار المنتجات في اليمن</h1> -->
     <!-- Google Tag Manager (no script) -->
-    <noscript
+    <!-- <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-59NDMV64"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
       ></iframe
-    ></noscript>
+    ></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
 
   </body>
