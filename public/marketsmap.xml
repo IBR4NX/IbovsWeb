@@ -7,9 +7,15 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://markets-ye.vercel.app/home</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
 
   <url>
-    <loc>https://markets-ye.vercel.app/main</loc>
+    <loc>https://markets-ye.vercel.app/prices?search=</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -49,24 +55,11 @@
     <priority>0.3</priority>
   </url>
 
-  <url>
-    <loc>https://markets-ye.vercel.app/dashboard</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
-  </url>
 
   <url>
     <loc>https://markets-ye.vercel.app/privacy-policy</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://markets-ye.vercel.app/careers</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
