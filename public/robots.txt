@@ -1,11 +1,3 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://markets-ye.vercel.app/sitemap.xml
-Sitemap: https://markets-ye.vercel.app/sitemap2.xml
-Sitemap: https://markets-ye.vercel.app/marketsmap.xml
-Sitemap: https://markets-ye.vercel.app/api/sitemap/rss.xml
-
 User-agent: Googlebot
 Allow: /
 
@@ -20,3 +12,9 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://markets-ye.vercel.app/sitemap.xml
+Sitemap: https://markets-ye.vercel.app/sitemap2.xml
+Sitemap: https://markets-ye.vercel.app/marketsmap.xml
+Sitemap: https://markets-ye.vercel.app/api/sitemap/rss.xml
+
