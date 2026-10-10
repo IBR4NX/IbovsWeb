@@ -140,7 +140,6 @@ function AnimatedRoutes() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Route>
-            <Route path="/:ft" element={<NotFound />} />
             <Route path="notfound" element={<NotFound />} />
           </Routes>
         </Suspense>
